@@ -12612,21 +12612,24 @@ Lang::setLocale('de');
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">PHPMailer dokumentacija</div>
+			<div class="entry-keywords">phpmailer, PHPMailer, documentation, dokumentacija, link, help</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><a target="_blank" href="https://packagist.org/packages/phpmailer/phpmailer">https://packagist.org/packages/phpmailer/phpmailer</a></p>
+	
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">File input field koji prihvata samo odredjene tipove fajlova</div>
+			<div class="entry-keywords">file, input, type, image, only, just, jpg, accept, html, form, image, gif</div>
+			<div class="entry-text">
 				
 <code>
+&lt;input type="file" name="file" &lt;b>accept="image/*"&lt;/b> />
 </code>
 				
 			</div>
@@ -12635,21 +12638,22 @@ Lang::setLocale('de');
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">PHP regexp string mora da ima delimitere</div>
+			<div class="entry-keywords">php, regexp, regular expression, error, problem, delimiter, /, pattern</div>
 			<div class="entry-text">
 
 				<p><span class="grayback"></span></p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><a target="_blank" href="https://stackoverflow.com/questions/4634993/php-regular-expressions-no-ending-delimiter-found-in">https://stackoverflow.com/questions/4634993/php-regular-expressions-no-ending-delimiter-found-in</a></p>
 				
 <code>
+$pattern = "^([0-9]+)$";   // LOSE
+$pattern = "/^([0-9]+)$/";   // DOBRO
+
+if (preg_match($pattern, $input))
+	echo "yes";
+else
+	echo "nope";
 </code>
 				
 			</div>
@@ -12658,45 +12662,13 @@ Lang::setLocale('de');
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">PHP regexp Unknown modifier 'g' </div>
+			<div class="entry-keywords">php, regexp, regular expression, preg_match(): Unknown modifier 'g', error, preg_match_all</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback">Upotrebi 'm' umesto 'g'.</span></p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
+				<p><a target="_blank" href="https://stackoverflow.com/questions/3578671/unknown-modifier-g-in-when-using-preg-match-in-php">https://stackoverflow.com/questions/3578671/unknown-modifier-g-in-when-using-preg-match-in-php</a></p>
 				
 			</div>
 		</div>
