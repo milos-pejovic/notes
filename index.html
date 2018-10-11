@@ -12610,6 +12610,7 @@ Lang::setLocale('de');
 				
 <code>
 &lt;input type="file" name="file" &lt;b>accept="image/*"&lt;/b> />
+
 </code>
 				
 			</div>
@@ -12678,30 +12679,31 @@ else
 				
 				<p><a target="_blank" href="https://brianclifton.com/blog/2018/04/16/google-analytics-gdpr-and-consent/">Google Analytics, GDPR and Consent</a></p>
 				
-	
+				<hr />
+				
+				<p><a target="_blank" href="https://support.google.com/analytics/answer/6366371?hl=en">Best practices to avoid sending Personally Identifiable Information (PII)</a></p>
+				
 			</div>
 		</div>
 
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Non default File input field</div>
+			<div class="entry-keywords">file, input, field, type, tip, fajl, default, non, custom, hide, button, choose</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
+				<p><span class="grayback"></span>Stavi se npr tekst "Upload a file" unutar <c>&lt;label></c> tagova zajedno sa <c>&lt;input type="file"></c> inputom. <br />Preko css-a se sakrije input polje.<br /> Zbog label taga, kada se klikne na "Uplaod a file" aktivirace se uplaod  funkcionalnost.<br /> Moze se blizu staviti neki &lt;p> tag, pa preko JS-a da se naziv fajla stavi u taj tag.</p>
+	
+<c>
+&lt;label>
+	&lt;p>Upload a file&lt;/p>
+	&lt;input type="file" id="uploaded_file" class="hidden" />&lt;br />
+	&lt;p class="uplaoded_file_name">No file chosen&lt;/p> // On file input change, update this tag text to file name (extract it from input field value)
+&lt;/label>
+
+</c>	
+	
 			</div>
 		</div>
 
