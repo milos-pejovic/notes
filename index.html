@@ -12710,21 +12710,18 @@ else
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Button u formi greska</div>
+			<div class="entry-keywords">form, button, type, send, submit, error, greska, reload</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback">Problem</span> Ako se u formi nalazi <c>&lt;button></c> i nema <c>type</c> attribut, na klik ce raditi submit forme.<br /> Ako je potrebno da to dugme radi nesto drugo, mora da ima <c>type="button"</c></p>
+
 				
 <code>
+&lt;form>
+	&lt;button <b><u>type="button"</u></b>>Non submit button&lt;/button>
+&lt;/form>
+
 </code>
 				
 			</div>
