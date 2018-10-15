@@ -12764,21 +12764,23 @@ else
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">All cookes in JS</div>
+			<div class="entry-keywords">javascript, js, cookies, document, split, console, access, all</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback"></span>Pristup svim cookie</p>
 				
-				<p><a target="_blank" href=""></a></p>
+<c>document.cookie</c>				
 				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback"></span>Daje objekat sa svim cookie</p>
 				
 <code>
+document.cookie.split(';').reduce((cookies, cookie) => {
+  let [ name, value ] = cookie.split('=').map(c => c.trim());
+  cookies[name] = value;
+  return cookies;
+}, {});
+
 </code>
 				
 			</div>
