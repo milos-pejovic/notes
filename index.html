@@ -718,7 +718,7 @@ html	{ background: #fff; }
 .print-info	{ display: block; }
 
 /* Hide blocks
---------------------------------------- */
+------------------------------------<*/
 .header,
 .aside,
 .footer	{ display: none; } 
@@ -12860,21 +12860,20 @@ document.cookie.split(';').reduce((cookies, cookie) => {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">JavaScript destroy all cookies (using jQuery.cookie.js)</div>
+			<div class="entry-keywords">javascript, js, cookies, destroy, all, expire, jq, jquery, trim, delete, null, set</div>
 			<div class="entry-text">
-
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
 				
 <code>
+function destroyAllCookies() {
+	var allCookies = document.cookie.split(';');
+
+	for (var i = 0; i &lt; allCookies.length; i++) {
+		var cookie = allCookies[i].split('=')[0].trim();
+		$.cookie(cookie, 1, {expires: 0});
+	}
+}
+
 </code>
 				
 			</div>
