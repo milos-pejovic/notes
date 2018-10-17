@@ -12897,6 +12897,32 @@ function destroyAllCookies() {
 				</ul>
 				
 <code>
+$('#ok').on('click', function() {
+	var cookie = {};
+	
+	if ($('#allow-cookies').is(':checked')) {
+		cookie.allowCookies = true;
+		cookie.allowGa = false;
+		cookie.dontLoad = false;
+
+		if ($('#allow-google-analytics').is(':checked')) {
+			cookie.allowGa = true;
+		}
+	} else {
+			destroyAllCookies();
+	}
+
+	if ($('#dont-load').is(':checked')) {
+		cookie.dontLoad = true;
+	}
+
+	console.log(cookie);
+
+	if ($('#allow-cookies').is(':checked') || $('#dont-load').is(':checked')) {
+		cookie = JSON.stringify(cookie);
+		$.cookie('rc', cookie, {expires: 365});
+	}
+});
 </code>
 				
 			</div>
