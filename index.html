@@ -12932,7 +12932,7 @@ $('#ok').on('click', function() {
 		
 		<div class="entry">
 			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-keywords">snippet, js, cookie</div>
 			<div class="entry-text">
 
 				<p><span class="grayback"></span></p>
@@ -12946,6 +12946,91 @@ $('#ok').on('click', function() {
 				</ul>
 				
 <code>
+// $.cookie.json = false;
+
+// var cookies = {};
+// if (typeof($.cookie('rc')) !== undefined) {
+//     $cookies = JSON.parse($.cookie('rc'));
+// }
+
+// if (typeof(cookies.allowCookies) !== undefined && cookies.allowCookies == true) {
+//     $('#allow-cookies').prop('checked', true);
+// } else {
+//     $('#allow-cookies').prop('checked', false);
+// }
+
+// $('#allow-cookies').on('click', function() {
+//     var allowGoogleAnalytics = $('#allow-google-analytics');
+//     var allowGaLabel = $('.ggl');
+
+//     if (!$(this).is(':checked')) {
+//         allowGoogleAnalytics.prop('checked', false);
+//         allowGoogleAnalytics.prop('disabled', true);
+//         allowGaLabel.css('color', 'lightgray');
+//     } else {
+//         allowGoogleAnalytics.prop('checked', true);
+//         allowGoogleAnalytics.prop('disabled', false);
+//         allowGaLabel.css('color', 'black');
+//     }
+// });
+
+/**
+ * ===============================================================================
+ */
+$('#btn').on('click', function() {
+    if ($('#allow-cookies').is(':checked')) {
+        $.cookie('allow-cookies', true, {expires: 365});        
+    } else {
+        destroyAllCookies();
+    }
+});
+
+/**
+ * ===============================================================================
+ */
+function destroyAllCookies() {
+    var allCookies = document.cookie.split(';');
+
+    for (var i = 0; i &lt; allCookies.length; i++) {
+        var cookie = allCookies[i].split('=')[0].trim();
+        $.cookie(cookie, 1, {expires: 0});
+    }
+}
+
+/**
+ * ===============================================================================
+ */
+$('#destroy-all-cookies').on('click', function() {
+    destroyAllCookies();
+});
+
+/**
+ * ===============================================================================
+ */
+$('#ok').on('click', function() {
+    var cookie = {};
+    
+    if ($('#allow-cookies').is(':checked')) {
+        cookie.allowCookies = true;
+        cookie.allowGa = false;
+        cookie.dontLoad = false;
+
+        if ($('#allow-google-analytics').is(':checked')) {
+            cookie.allowGa = true;
+        }
+    } else {
+        destroyAllCookies();
+    }
+
+    if ($('#dont-load').is(':checked')) {
+        cookie.dontLoad = true;
+    }
+
+    if ($('#allow-cookies').is(':checked') || $('#dont-load').is(':checked')) {
+        cookie = JSON.stringify(cookie);
+        $.cookie('rc', cookie, {expires: 365});
+    }
+});
 </code>
 				
 			</div>
@@ -12955,7 +13040,7 @@ $('#ok').on('click', function() {
 		
 		<div class="entry">
 			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-keywords">gdpr, cookie, code, practice</div>
 			<div class="entry-text">
 
 				<p><span class="grayback"></span></p>
@@ -12969,6 +13054,322 @@ $('#ok').on('click', function() {
 				</ul>
 				
 <code>
+&lt;?php
+
+// function destroyAllCookies() {
+//     foreach ($_COOKIE as $cookieName => $cookieValue) {
+//         setcookie($cookieName, '', time());
+//     }
+// }
+
+// echo '&lt;pre>';
+// var_dump($_POST);
+// echo '&lt;/pre>';
+
+//==================================================================================
+
+// $cookie = new stdClass();
+
+// $cookie->allowCookies = false;
+// $cookie->allowGa = false;
+// $cookie->dontLoad = true;
+
+// if (isset($_COOKIE['allowCookies'])) {
+//     $cookie->allowCookies = $_COOKIE['allowCookies'];
+// }
+
+// if (isset($_COOKIE['allowGa'])) {
+//     $cookie->allowGa = $_COOKIE['allowGa'];
+// }
+
+// if (isset($_COOKIE['dontLoad'])) {
+//     $cookie->dontLoad = $_COOKIE['dontLoad'];
+// }
+
+// if (isset($_POST['submit']) && $_POST['submit'] == 'submit') {
+//     if (isset($_POST['allowCookies']) && $_POST['allowCookies'] == 'on') {
+//         $cookie->allowCookies = true;
+    
+//         if (isset($_POST['allowGa']) && $_POST['allowGa'] == 'on') {
+//             $cookie->allowGa = true;
+//         } else {
+//             $cookie->allowGa = false;
+//         }
+    
+//     } else {
+//         $cookie->allowCookies = false;
+//     }
+    
+//     if (isset($_POST['dontLoad']) && $_POST['dontLoad'] == 'on') {
+//         $cookie->dontLoad = true;
+//     } else {
+//         $cookie->dontLoad = false;
+//     }
+    
+//     if ($cookie->allowCookies == true) {
+//         echo '&lt;h1>YES COOKIE&lt;/h1>';
+//         setcookie('allowCookies', $cookie->allowCookies, time() + 3600 * 24 * 365);
+//         setcookie('allowGa', $cookie->allowGa, time() + 3600 * 24 * 365);
+//     } else {
+//         echo '&lt;h1>NO COOKIE&lt;/h1>';
+//         destroyAllCookies();
+//     }
+    
+//     if ($cookie->dontLoad == true) {
+//         setcookie('dontLoad', $cookie->dontLoad, time() + 3600 * 24 * 365);
+//     }
+// }
+
+
+
+
+if (!isset($_COOKIE['allowCookies'])) {
+    error_log('allowCookies');
+    setcookie('allowCookies', 'true', time() + 3600 * 24 * 365);
+}
+
+if (!isset($_COOKIE['allowGa'])) {
+    error_log('allowGa');
+    setcookie('allowGa', 'true', time() + 3600 * 24 * 365);
+}
+
+if (!isset($_COOKIE['dontLoad'])) {
+    error_log('dontLoad');
+    setcookie('dontLoad', 'false', time() + 3600 * 24 * 365);
+}
+
+
+
+
+?>
+
+&lt;html>
+&lt;head>
+    &lt;script src="jq.js">&lt;/script>
+    &lt;script src="jquery.cookie.js">&lt;/script>
+&lt;/head>
+
+&lt;body>
+
+    &lt;?php 
+    
+        if (isset($_COOKIE['allowGa']) && $_COOKIE['allowGa'] == 'true') {
+            echo '&lt;h1>GA&lt;/h1>';
+        }
+
+    ?>
+ 
+
+    
+
+    
+    
+    &lt;!-- &lt;form action="" method="POST">
+
+        &lt;label>
+            &lt;input type="checkbox" id="allowCookies" name="allowCookies" &lt;?php //echo ($cookie->allowCookies) ? 'checked="checked"' : ''; ?>  />I allow cookies.
+        &lt;/label>
+
+        &lt;br />&lt;br />
+
+        &lt;label>
+            &lt;input type="checkbox" id="allowGa" name="allowGa" &lt;?php //echo ($cookie->allowGa) ? 'checked="checked"' : ''; ?>  />I allow Google Analytics. (Cookies must be allowed)
+        &lt;/label>
+
+        &lt;br />&lt;br />
+
+        &lt;label>
+            &lt;input type="checkbox" id="dontLoad"  name="dontLoad" &lt;?php //echo (isset($cookie->dontLoad) && $cookie->dontLoad) ? 'checked="checked"' : ''; ?>  />Do not load this on page load.&lt;br />WARNING If you check this setting it will be saved as a cookie even of you have not allowed cookeis. 
+            &lt;br />In this case, no other cookie will be made.
+        &lt;/label> 
+        
+        &lt;br />&lt;br /> 
+
+        &lt;button type="submit" value="submit" name="submit">Confirm&lt;/button>
+
+    &lt;/form> -->
+
+    &lt;label>
+        &lt;input type="checkbox" id="allowCookies" name="allowCookies" />I allow cookies other than these settings.
+    &lt;/label>
+
+    &lt;br />&lt;br />
+
+    &lt;label>
+        &lt;input type="checkbox" id="allowGa" name="allowGa" />I allow Google Analytics. (Cookies must be allowed)
+    &lt;/label>
+
+    &lt;br />&lt;br />
+
+    &lt;label>
+        &lt;input type="checkbox" id="dontLoad"  name="dontLoad" />Do not load this on page load.&lt;br />WARNING If you check this setting it will be saved as a cookie even of you have not allowed cookeis. 
+        &lt;br />In this case, no other cookie will be made.
+    &lt;/label> 
+    
+    &lt;br />&lt;br /> 
+
+    &lt;button id="confirm">Confirm&lt;/button>
+
+    &lt;script src="js.js">&lt;/script>
+
+&lt;/body>
+&lt;/html>
+
+
+=======================================================================================
+
+// $.cookie.json = false;
+
+// var cookies = {};
+// if (typeof($.cookie('rc')) !== undefined) {
+//     $cookies = JSON.parse($.cookie('rc'));
+// }
+
+// if (typeof(cookies.allowCookies) !== undefined && cookies.allowCookies == true) {
+//     $('#allow-cookies').prop('checked', true);
+// } else {
+//     $('#allow-cookies').prop('checked', false);
+// }
+
+// $('#allow-cookies').on('click', function() {
+//     var allowGoogleAnalytics = $('#allow-google-analytics');
+//     var allowGaLabel = $('.ggl');
+
+//     if (!$(this).is(':checked')) {
+//         allowGoogleAnalytics.prop('checked', false);
+//         allowGoogleAnalytics.prop('disabled', true);
+//         allowGaLabel.css('color', 'lightgray');
+//     } else {
+//         allowGoogleAnalytics.prop('checked', true);
+//         allowGoogleAnalytics.prop('disabled', false);
+//         allowGaLabel.css('color', 'black');
+//     }
+// });
+
+/**
+ * ===============================================================================
+ */
+// $('#btn').on('click', function() {
+//     if ($('#allow-cookies').is(':checked')) {
+//         $.cookie('allow-cookies', true, {expires: 365});        
+//     } else {
+//         destroyAllCookies();
+//     }
+// });
+
+/**
+ * ===============================================================================
+ */
+// function destroyAllCookies() {
+//     var allCookies = document.cookie.split(';');
+
+//     for (var i = 0; i &lt; allCookies.length; i++) {
+//         var cookie = allCookies[i].split('=')[0].trim();
+//         $.cookie(cookie, 1, {expires: 0});
+//     }
+// }
+
+/**
+ * ===============================================================================
+ */
+// $('#destroy-all-cookies').on('click', function() {
+//     destroyAllCookies();
+// });
+
+/**
+ * ===============================================================================
+ */
+// $('#ok').on('click', function() {
+//     var cookie = {};
+    
+//     if ($('#allow-cookies').is(':checked')) {
+//         cookie.allowCookies = true;
+//         cookie.allowGa = false;
+//         cookie.dontLoad = false;
+
+//         if ($('#allow-google-analytics').is(':checked')) {
+//             cookie.allowGa = true;
+//         }
+//     } else {
+//         destroyAllCookies();
+//     }
+
+//     if ($('#dont-load').is(':checked')) {
+//         cookie.dontLoad = true;
+//     }
+
+//     if ($('#allow-cookies').is(':checked') || $('#dont-load').is(':checked')) {
+//         cookie = JSON.stringify(cookie);
+//         $.cookie('rc', cookie, {expires: 365});
+//     }
+// });
+
+//=================================================================================================================
+
+// $('#confirm').on('click', function() {
+
+//     if ($('#allowCookies').is(':checked')) {
+//         $.cookie('allowCookies', true, {expires: 365});
+
+//         if ($('#allowGa').is(':checked')) {
+//             $.cookie('allowGa', true, {expires: 365});
+//         }
+//     } else {
+//         destroyAllCookies();
+//     }
+
+//     if ($('#dontLoad').is(':checked')) {
+//         $.cookie('dontLoad', true, {expires: 365});
+//     } else {
+//         $.cookie('dontLoad', 1, {expires: 0});
+//     }
+
+//     location.reload();
+// });
+
+//=================================================================================================================
+
+$('#confirm').on('click', function() {
+
+    if ($('#allowCookies').is(':checked')) {
+        $.cookie('allowCookies', true, {expires: 365});
+
+        if ($('#allowGa').is(':checked')) {
+            $.cookie('allowGa', true, {expires: 365});
+        } else {
+            $.cookie('allowGa', false, {expires: 365});
+        }
+
+    } else {
+        $.cookie('allowCookies', false, {expires: 365});
+        $.cookie('allowGa', false, {expires: 365});
+    }
+
+    if ($('#dontLoad').is(':checked')) {
+        $.cookie('dontLoad', true, {expires: 365});
+    } else {
+        $.cookie('dontLoad', false, {expires: 365});
+    }
+
+    location.reload();
+});
+
+//=================================================================================================================
+
+if ($.cookie('allowCookies') == 'true') {
+    $('#allowCookies').prop('checked', true);
+}
+
+if ($.cookie('allowGa') == 'true') {
+    $('#allowGa').prop('checked', true);
+}
+
+if ($.cookie('dontLoad') == 'true') {
+    $('#dontLoad').prop('checked', true);
+}
+
+
+
 </code>
 				
 			</div>
