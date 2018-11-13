@@ -11574,8 +11574,8 @@ If there is a (potential) problem with password, this can be done to help enteri
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title">Copy and Replace script</div>
-			<div class="entry-keywords">copy, replace, script, database, db, url, domain, http://, https://, wordpress, wp, local, lokal, development, live, migrate, transfer</div>
+			<div class="entry-title">Search and Replace script</div>
+			<div class="entry-keywords">search, copy, replace, script, database, db, url, domain, http://, https://, wordpress, wp, local, lokal, development, live, migrate, transfer, s/r, S/R</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">Upotreba</span> Ova skripta se pokrene na projektu da bi se nad celom bazom izvrsila promena jednog stringa u drugi.</p>
@@ -13526,57 +13526,50 @@ The message is there because the request to retrieve that resource was never mad
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Access denied for user 'root'@'localhost'</div>
+			<div class="entry-keywords">root, localhost, password, cli, command, line, interface, search, replace, access, denied, user</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback"></span>Access denied for user 'root'@'localhost'</p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
+				<p>Ako nema sifre, proslediti prazan string ''.</p>
+	
+<c>
+php srdb.cli.php -h localhost -n zzz -u root -p <b><u>''</u></b> -s a -r a -z
+
+</c>	
+	
 			</div>
 		</div>
 
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Search/Replace skripta, problem</div>
+			<div class="entry-keywords">searchm replcae, script, error, problem, ajax, unserialize, unserialise, class, incomplete, php, version, db, database, s/r, S/R</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback">Problem</span> prilikom pokretanja S/R skripte (u dry run-u) prikaze se alert sa "Ajax problem" greskom.</p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
+				<p>Prebaciti verziju php-a na serveru na 5.6 i porkenuti ponovo. Moguce je da ce se priakzati greska "incomplete class...no unserializer". <br /> Testirali smo i bez obzira na ovu gresku sve je radilo ok. String koji je trebalo da se menja je bio zamenjen, a u serijalizovanim vrednostima je bila azurirana i duzina stringa.</p>
+			
 			</div>
 		</div>
 
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Elementor font na novom sajtu se vuce sa urla starog</div>
+			<div class="entry-keywords">wordpress, wp, elementor, font, url, domen, db, database, error, problem, console, konzola, search, replace</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback">Problem</span> WordPress sajt je radjen u Elementoru.<br />Prebacili smo sajt (fajlove i bazu) na drugi server.<br />
+				Uradili smo Search/Replace na bazi da se svi url starog sajta zamene urlom novog sajta.<br />
+				Kad se otvori sajt na novom serveru postoji problem sa fontom, request za font i dalje ide na satri sajt.
+				</p>
+				
+				<p><span class="grayback">Resenje</span> Ima podesavanje<br /> Site Admin -> Elementor -> Tools -> Replace URL<br /> koje mora da se primeni.
+				</p>
 				
 				<p><a target="_blank" href=""></a></p>
 				
