@@ -3558,7 +3558,7 @@ SOURCE C:\Users\Ivana\Downloads\usr_p400739_1.sql
 		
 		<div class="entry">
 			<div class="entry-title">SEO redirekcija, rucna promena domena</div>
-			<div class="entry-keywords">seo, SEO, domen, domain, redirection, link</div>
+			<div class="entry-keywords">seo, SEO, domen, domain, redirection, link, index, google, check, proveri, dev, live</div>
 			<div class="entry-text">
 				<p><b class="grayback">Primer</b> Za Alanus smo rucno pravili spisak linkova koje je Google indeksirao i linkove na koje oni treba da redirektuju.</p>
 				<p><b class="grayback">Fajl</b> Imamo excel fajl sa nekoliko kolona ("old url", "new domain", "link to new page" i moze se dodati "comment"). Naziv fajla koji smo koristili je <b>"SEO_redirekcija_primer.xlsx"</b></p>
@@ -11595,9 +11595,15 @@ If there is a (potential) problem with password, this can be done to help enteri
 			<div class="entry-text">
 				
 <code>
-var emailRegExp = '^[\\w\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$';
-var emailEntry = 'test@test.com';
-emailEntry.match(emailRegExp);
+function validateSenderEmail(emailEntry) {
+	var emailRegExp = '^[\\w\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$';
+
+	if (emailEntry.match(emailRegExp) == null) {
+		return false;
+	} else {
+		return true;
+	}
+}
 
 </code>
 				
@@ -13570,6 +13576,152 @@ php srdb.cli.php -h localhost -n zzz -u root -p <b><u>''</u></b> -s a -r a -z
 				
 				<p><span class="grayback">Resenje</span> Ima podesavanje<br /> Site Admin -> Elementor -> Tools -> Replace URL<br /> koje mora da se primeni.
 				</p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">NetBeans change tab size</div>
+			<div class="entry-keywords">nb, netbeans, tab, size, change, 2, 4, 8</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Tools -> Options -> Editor -> Formatting -> Tab Size<br /> Odstikliraj "Use All Language Settings"</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Hide admin bar in frontend when user logged in</div>
+			<div class="entry-keywords">wordpress, wp, hide, admin, bar, when user, logged, in, functions, php</div>
+			<div class="entry-text">
+				
+				<p>U <c>functions.php</c> staviti kod:</p>
+				
+<code>
+// Hide admin bar in frontend while logged in
+add_filter('show_admin_bar', '__return_false');
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">WordPress js dodat u functions.php u child temi se ne ucitava</div>
+			<div class="entry-keywords">wordpress, wp, js, child, theme, tema, functions.php, jq</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">Problem</span> JS kod ukljucen unutar functions.php unutar child teme se ne ukljucuje.</p>
+				
+				<p><span class="grayback">Proveriti</span> Ako u function.php u parentu psotoji funkcija pod nazivom npr <c>twentyseventeen_scripts</c> ne moze psotojati (f) sa istim imenom u child temi. (promeni u twentyseventeen_child_scripts)</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">LighBox close on click anywhere but on this element</div>
+			<div class="entry-keywords">js, javascript, jq, jquery, lightbox, light-box, light, box, close, click, on</div>
+			<div class="entry-text">
+				
+<code>
+$('.screen-cover').on('click', function(e) {
+	if (!$(e.target).closest('.star-rating-form-modal').length) {
+		console.error('CLOSE');
+	} else {
+		console.warn('OPEN');
+	}
+});	
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Regular expression for name/surname</div>
+			<div class="entry-keywords">regexp, regular, expression, name, surname, vorname</div>
+			<div class="entry-text">
+				
+<code>
+function validateSenderName(nameEntry) {
+	if (nameEntry.match(/[^a-zA-Z\s]/gi) !== null || nameEntry == '')  {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Click event, kako se registruje</div>
+			<div class="entry-keywords">js, javascript, event, click, handler, cursor, move, button</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">Definicija</span> Click se registruje kada se dugme misa pusti, tamo gde je kursor bio u trenutku pustanja.</p>
+				
+				<p><span class="grayback">Primer problema</span> Ako se levi klik klikne na button, kursor pomeri van button elementa pa tek onda pusti levo dugme, klik se nece registrovati na button.</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
 				
