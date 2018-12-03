@@ -13579,15 +13579,6 @@ php srdb.cli.php -h localhost -n zzz -u root -p <b><u>''</u></b> -s a -r a -z
 				
 				<p><a target="_blank" href=""></a></p>
 				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
 			</div>
 		</div>
 
@@ -13681,7 +13672,7 @@ function validateSenderName(nameEntry) {
 		
 		<div class="entry">
 			<div class="entry-title">Click event, kako se registruje</div>
-			<div class="entry-keywords">js, javascript, event, click, handler, cursor, move, button</div>
+			<div class="entry-keywords">js, javascript, event, click, handler, cursor, move, button, error, problem, not, work</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">Definicija</span> Click se registruje kada se dugme misa pusti, tamo gde je kursor bio u trenutku pustanja.</p>
@@ -13694,10 +13685,560 @@ function validateSenderName(nameEntry) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
+			<div class="entry-title">WordPress Elementor plugin, ne moze da se edituje strana</div>
+			<div class="entry-keywords">wp, wordpress, elementor, canvas, full, width, template, edit, error, problem, mc</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">Problem</span> Kad se strana otvori u Elementoru, ne moze da se edituje. Nema prozora za "Drag and Drop" elemenata.</p>
+				
+				<p><span class="grayback">Resenje</span> Kad se strana edituje preko WordPress (obican edit, ne Elementorov) treba Template postaviti na "Elementor Canvas" ili "Elementor Full Width"</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">MailChimp notifications translation.</div>
+			<div class="entry-keywords">mailchimp, newsletter, translation, notifications, strings, message, german, nemacki, German</div>
+			<div class="entry-text">
+
+<pre>
+Thank you, your sign-up request was successful! Please check your email inbox to confirm.
+Danke, Ihre Registrierung war erfolgreich! Bitte prüfen Sie Ihren E-Mail Posteingang um es zu bestätigen.
+
+Please provide a valid email address.
+Bitte verwenden Sie eine gültige E-Mail Adresse.
+
+Please fill in the required fields.
+Bitte füllen Sie die notwendigen Felder aus.
+
+Given email address is already subscribed, thank you!
+Die angegebene E-Mail-Adresse ist bereits abonniert, danke!
+
+Oops. Something went wrong. Please try again later.
+Oops. Etwas ist schief gelaufen. Bitte versuchen Sie es später nochmals.
+
+You were successfully unsubscribed.
+Sie wurden erfolgreich abgemeldet.
+
+Given email address is not subscribed.
+Die angegebene E-Mail-Adresse ist nicht abonniert.
+
+Please select at least one list.
+Bitte wählen Sie mindestens eine Liste aus.
+
+</pre>				
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript</div>
+			<div class="entry-keywords">typescript, ts, js, javascript, transpile, compile, npm</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">Transpile</span> Pretvoriti TS kod u JS. Ovo se radi automatski.</p>
+				<p><span class="grayback">Validan kod</span> Validan JS kod je istovremeno i validan TS.</p>
+				<p><span class="grayback">Automatski transpile</span> Kad se pravi Angular applikacija, i koristi "ang serve" komanda, TS se automatski transpaijlira.</p>
+				<p><span class="grayback"></span></p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">JavaScript, keyword "let"</div>
+			<div class="entry-keywords">js, javascript, var, let, variable, ts, typescript, react</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">var</span> Promenljva definisiana ovako se skopuje na funkciju u kojoj se nalazi.</p>
+				
+				<p><span class="grayback">let</span> Promenljva definisiana ovako se skopuje na najblizi blok.</p>
+				
+				<p><a target="_blank" href=""></a></p>
+
+				
+<code>
+function myFun() {
+	for (var i = 0; i < 5; i++) {
+	...
+	}
+
+	for (let j = 0; j < 5; j++) {
+		...
+	}
+
+	console.log(i); Dostupno
+	console.log(j); Nije dostupno
+}
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript variable types</div>
+			<div class="entry-keywords">typescript, ts, js, javascript, variable, let, string, number, bool, any, const, enum</div>
+			<div class="entry-text">
+				
+<code>
+let a: number; // integer or float
+let b: boolean;
+let c: string;
+let d: any;
+let e: number[];
+let e: number[] = [1, 2, 3];
+let f: ant[] = [1, 'two', false];
+</code>
+				
+				<hr />
+				
+				<p>Constants</p>
+				
+<code>
+const ColorRed = 0;
+const ColorBlue = 1;
+const ColorYellow = 2;
+</code>	
+
+				<p>Enum</p>
+
+<c>
+// implicitly get values 0, 1, 2... (e.g. Color.Red has value 0)
+enum Color {Red, Green, Blue}; 
+</c>
+
+				<p>It is better to assign values because if someone adds a color after "Red", Green, and Blue will have their values changed</p>
+
+<c>
+enum Color {Red = 0, Green = 1, Blue = 2}; 
+</c>				
+
+				<p>Using enum constants.</p>
+
+<c>
+let backgroundColor = Color.Green;
+
+</c>				
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript type assertion</div>
+			<div class="entry-keywords">typescript, ts, javascript, js, type, assertion let</div>
+			<div class="entry-text">
+				
+<code>
+let message; // Tip se definise kao "any"
+message = "Some string";
+let endWithC = message.endWith('s'); // message je ovde type = "any". Intelisense npr nece ponuditi opcije za string methods.
+</code>
+				
+				<p>
+					Type assertion<br />
+					Ovako smo objasnili eksplicitno objasnili ts-u da je ovo string
+				</p>
+<c>
+let endWithC = <b><u>(&lt;string>message</u></b>).endWith('s');
+
+ILI
+
+let endWithCAlternative = <b><u>(message as string</u></b>).endWith('s');
+</c>				
+	
+			<p><span class="grayback">VAZNO</span> Ove komande <u><b>ne</b></u> menjaju tip promenljive tokom run tajma.</p>
+	
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Arrow functions</div>
+			<div class="entry-keywords">javascript, js, typescript, ts, function, arrow, lambda</div>
+			<div class="entry-text">
+			
+				<p>Ovo</p>
+			
+<c>
+let log = function(message) {
+	console.log(message);
+}
+</c>
+
+				<p>mozemo da pretovirmo u ovo:</p>
+
+<c>
+let doLog = (message) => {
+	console.log(message);
+}
+</c>
+
+				<p>Bez parametara:</p>
+
+<c>
+let doLog = () => {
+	console.log('Hello world!');
+}
+</c>				
+				
+				<p>Ako funckija ima samo jednu liniju moze i:</p>
+				
+<c>
+let doLog = (message) => console.log(message);
+</c>				
+				
+				<p>Ako se ima samo jedan parametar mogu cak i zagrade da se uklone.</p>
+				
+<c>
+let doLog = message => console.log(message);
+
+</c>				
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript Interface, priper, istrazi jos</div>
+			<div class="entry-keywords">typescript, ts, js, javascript, interface, object, primer, example</div>
+			<div class="entry-text">
+				
+				<p>Mosh Hamedi, tutorijal, ~1:00:05</p>
+				<p><a href="https://youtu.be/k5E2AVpwsko?t=3358">https://youtu.be/k5E2AVpwsko?t=3358</a></p>
+				
+<code>
+interface Point {
+	x: number,
+	y: number,
+	draw: () => void // defines a method "draw" that retirns void. 
+}
+
+// In interfaces we can only have a function signature NOT an implementation ().
+
+let drawPoint = (point: Point) => {
+	
+}
+
+let a = drawPoint({
+	x: 1,
+	y: 2
+});
+
+console.log(a);
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript class</div>
+			<div class="entry-keywords">typescript, ts, javascript, js, class, object, instance, new, constructor</div>
+			<div class="entry-text">
+				
+<code>
+class Point {
+	x: number;
+	y: number;
+	
+	draw() {
+		console.log('X:' + this.x);
+	}
+	
+	getDistance(another: Point) {
+		//...
+	}
+}
+
+let point: Point = new Point();
+let Point = new Point();
+
+point.x = 1;
+point.y = 2;
+point.draw();
+
+</code>
+
+				<p>
+					Konstruktor<br />
+					Samo jedan konstruktor po klasi
+				</p>
+
+<c>
+class Point {
+	x: number;
+	y: number;
+	
+	constructor(x: number, y:number) {
+		this.x = x;
+		this.y = y;
+	}
+}
+
+let point = new Point(1, 2);
+</c>				
+
+				<p>
+					Opcioni parametri<br />
+					Dodati ? posle naziva promenljive<br />
+					Ako je neki parametar opcioni, svi parametri desno od njega takodje treba da budu opcioni
+				</p>
+
+<c>
+...
+constructor(x?: number, y?:number) {
+...
+</c>				
+				
+				<p>
+					Modifikatori pristupa<br />
+					public, protected, private<br />
+					default je PUBLIC
+				</p>
+
+<c>
+class Point {
+	private x: number;
+	private y: number;
+	
+	private draw() {
+		//...
+	}
+...
+</c>			
+				
+				<p>
+					Pojednostavljenje<br />
+					OVO
+				</p>
+		
+<c>
+class Point {
+	private x: number;
+	private y: number;
+	
+	constructor(x?: number, y?:number) {
+		this.x = x;
+		this.y = y;
+	}
+}
+</c>
+				<p>JE ISTO STO I</p>
+<c>
+class Point {	
+	constructor(private x: number, private y:number) {}
+}
+</c>
+
+				<p>Isto je sa svim modifikatorima pristupa.</p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript, moduli, import, export</div>
+			<div class="entry-keywords">typescript, ts, javascript, js, module, import, export</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+				<p>Da bi nesto definisano u jednom fajlu mogli da koristimo u drugim fajlovima, moramo ga eksportovati</p>
+				
+<c>
+export class Point {
+	//...
+}
+</c>				
+
+			<p>U ciljnom fajlu koristimo "Import"</p>
+
+<c>
+import { Point } from './point';
+
+Point - Naziv klase
+'.point' - Relativna putanja do fajla. Naziv fajla bez ekstenzije .ts. Fajl "point.ts" je u istom folderu kao fajl sa ovim kodom.
+</c>		
+
+			<p>Ako na vrhu fajla stoji "import" ili "export" na vrhu fajla, TS taj fajl posmatra kao modul.</p>
+
+			<p>* Moze se eksportovati jedno ili vise od: <br />
+class<br />
+function<br />
+variable<br />
+object</p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Visual Studio Code, shortcust</div>
+			<div class="entry-keywords">visual, studio, code, terminal, console, shortcut, open, vsc, files, panel</div>
+			<div class="entry-text">
+				
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td>Terminal</td>
+						<td>ctrl + `</td>
+					</tr>
+					<tr>
+						<td>Files panel</td>
+						<td>ctrl + b</td>
+					</tr>
+				</table>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Angular, skracenica za pravljenje komponente</div>
+			<div class="entry-keywords">angular, terminal, component, create, shorthand, shortcut, command, line</div>
+			<div class="entry-text">
+			
+<code>
+ng g c course
+
+g - generate
+c - component
+course - name of the component
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript Injectable decorater</div>
+			<div class="entry-keywords">typescript, ts, javascript, js, injectable, component, service, decorater, decorator</div>
+			<div class="entry-text">
+				
+				<p>Dekorater "Injectable" definise da se u konstruktor te klase moze injectovati njegove dependencies. U Service to izgelda ovako:</p>
+				
+<c>				
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class EmailService {
+  constructor() { }
+}
+</c>
+				<p>U Komponentama to nije neophodno, jer se automatski dogadja "ispod haube"</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">TypeScript, component dependencies</div>
+			<div class="entry-keywords">typescript, ts, javascript, js, component dependcies, injection, dependency</div>
+			<div class="entry-text">
+
+			<p>Ako nam u nekoj komponenti treba service, mozemo uraditi ovako nesto:</p>
+
+<c>
+import { CoursesService } from './courses.service';
+import { Component } from '@angular/core';
+
+export class Courses {
+	courses;
+	
+	constructor() {
+		<u><b>let service = new CoursesService();</b></u>
+		courses = service.getCourses();
+	}
+}
+</c>			
+			<p>
+				Problemi:<br />
+				Zbog instanciranja CoursesService u Courses, imamo coupling.<br />
+				Ovo je problem za unit testing.<br />
+				Takodje, ako se izmeni konstruktor za CoursesService, moramo da ga menjamo i ovde.<br />
+				<b><u>Dependency injection</u></b> je bolje resenje:
+			</p>
+				
+<c>
+import { CoursesService } from './courses.service';
+import { Component } from '@angular/core';
+
+export class Courses {
+	courses;
+	
+	constructor(<u><b>service: CoursesService</b></u>) {
+		courses = service.getCourses();
+	}
+}
+</c>				
+			<p>
+				Efekat je isti.<br />
+				Da bi ovo radilo, mora se u app.module.ts u providers: [] dodati naziv klase koja dependency (u primeru to je CoursesService).<br />
+				Takdoje, mora se na vrh app.module.ts import { CoursesService } from './courses.service';.
+			</p>
+
+<c>
+...
+import { CoursesService } from './courses.service';
+
+@NgModule({
+  ...
+  providers: [
+    CoursesService
+  ],
+  ...
+})
+export class AppModule { }
+
+</c>			
+			
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13721,6 +14262,13 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13744,6 +14292,13 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13767,6 +14322,42 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13790,6 +14381,13 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13813,6 +14411,13 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13836,6 +14441,13 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13859,6 +14471,13 @@ function validateSenderName(nameEntry) {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
 				<p><span class="grayback"></span></p>
 				
 				<p><a target="_blank" href=""></a></p>
@@ -13877,74 +14496,7 @@ function validateSenderName(nameEntry) {
 
 		<!-- Entry separator -->
 		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
 		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
 		
 	</div>
 	
