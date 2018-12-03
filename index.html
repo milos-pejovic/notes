@@ -14228,28 +14228,40 @@ export class AppModule { }
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">ASP.NET Controller return types</div>
+			<div class="entry-keywords">asp.net, controller, return, type, actionresult</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback">ActionResult</span> Ako kontrleru stavimo da vraca ActionResult to poktiva sve podtipove ActionResult.</p>
+
+<code>
+public ActionResult Random()
+{
+	var movie = new Movie() { Name= "Sam!"};
+	return View(movie);
+}
+</code>
+				<p><a target="_blank" href="https://www.c-sharpcorner.com/article/different-types-of-action-results-in-asp-net-mvc/">Read More</a></p>
 				
-				<p><a target="_blank" href=""></a></p>
 				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">ASP.NET Empty Result</div>
+			<div class="entry-keywords">asp.net, controlelr, return, empty, result, void</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Ako kontroller ne vraca resultat, mora da vrati EmptyResult.</p>
 				
 <code>
+public ActionResult Random()
+{
+	var movie = new Movie() { Name= "Sam!"};
+	return new <u>EmptyResult();</u>
+}
 </code>
 				
 			</div>
@@ -14258,28 +14270,17 @@ export class AppModule { }
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">ASP.NET Opcioni parametri</div>
+			<div class="entry-keywords">asp.net, parameter, optional, function, method, opcioni, parametri, ?</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback"></span>Doda se ? odmah posle definianja tipa promenjive.<br />Za stringove nije potrebno. ("String is a reference type and is nullable")</p>
 				
 <code>
+ public ActionResult Index(int? pageIndex, string sortBy)
+{
+	// ...
+}
 </code>
 				
 			</div>
@@ -14288,58 +14289,25 @@ export class AppModule { }
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">ASP.NET custom routes</div>
+			<div class="entry-keywords">asp.net, mvc, custom, routes</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+				<p><span class="grayback">Fajl</span> App_Start/RouteConfig.cs</p>
+	
 <code>
-</code>
-				
-			</div>
-		</div>
+routes.MapRoute(
+	name: "Default",
+	url: "{controller}/{action}/{id}",
+	defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+);
 
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
+routes.MapRoute(
+	"MoviesByReleaseDate",
+	"movies/released/{year}/{month}",
+	new { controller = "Movies", action = "ByReleaseDate" },
+	new { year = @"\d{4}", month = @"\d{2}" } // Ogranicavanje parametara.
+);
 </code>
 				
 			</div>
