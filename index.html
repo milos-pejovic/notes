@@ -13752,7 +13752,7 @@ Bitte wählen Sie mindestens eine Liste aus.
 		
 		<div class="entry">
 			<div class="entry-title">JavaScript, keyword "let"</div>
-			<div class="entry-keywords">js, javascript, var, let, variable, ts, typescript, react</div>
+			<div class="entry-keywords">js, javascript, var, let, variable, ts, typescript, react, function, keyword</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">var</span> Promenljva definisiana ovako se skopuje na funkciju u kojoj se nalazi.</p>
@@ -13795,7 +13795,7 @@ let c: string;
 let d: any;
 let e: number[];
 let e: number[] = [1, 2, 3];
-let f: ant[] = [1, 'two', false];
+let f: any[] = [1, 'two', false];
 </code>
 				
 				<hr />
@@ -13815,7 +13815,7 @@ const ColorYellow = 2;
 enum Color {Red, Green, Blue}; 
 </c>
 
-				<p>It is better to assign values because if someone adds a color after "Red", Green, and Blue will have their values changed</p>
+				<p>It is better to assign values because if someone adds a color after "Red", values for "Green" and "Blue" will be changed.</p>
 
 <c>
 enum Color {Red = 0, Green = 1, Blue = 2}; 
@@ -13835,7 +13835,7 @@ let backgroundColor = Color.Green;
 		
 		<div class="entry">
 			<div class="entry-title">TypeScript type assertion</div>
-			<div class="entry-keywords">typescript, ts, javascript, js, type, assertion let</div>
+			<div class="entry-keywords">typescript, ts, javascript, js, type, assertion, let</div>
 			<div class="entry-text">
 				
 <code>
@@ -13911,7 +13911,7 @@ let doLog = message => console.log(message);
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title">TypeScript Interface, priper, istrazi jos</div>
+			<div class="entry-title">TypeScript Interface, primer, istrazi jos</div>
 			<div class="entry-keywords">typescript, ts, js, javascript, interface, object, primer, example</div>
 			<div class="entry-text">
 				
@@ -13937,6 +13937,7 @@ let a = drawPoint({
 });
 
 console.log(a);
+
 </code>
 				
 			</div>
@@ -14055,19 +14056,6 @@ class Point {
 			<div class="entry-keywords">typescript, ts, javascript, js, module, import, export</div>
 			<div class="entry-text">
 
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
 				<p>Da bi nesto definisano u jednom fajlu mogli da koristimo u drugim fajlovima, moramo ga eksportovati</p>
 				
 <c>
@@ -14099,7 +14087,7 @@ object</p>
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title">Visual Studio Code, shortcust</div>
+			<div class="entry-title">Visual Studio Code, shortcuts</div>
 			<div class="entry-keywords">visual, studio, code, terminal, console, shortcut, open, vsc, files, panel</div>
 			<div class="entry-text">
 				
@@ -14130,6 +14118,7 @@ ng g c course
 g - generate
 c - component
 course - name of the component
+
 </code>
 				
 			</div>
@@ -14138,7 +14127,7 @@ course - name of the component
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title">TypeScript Injectable decorater</div>
+			<div class="entry-title">TypeScript "Injectable" decorater</div>
 			<div class="entry-keywords">typescript, ts, javascript, js, injectable, component, service, decorater, decorator</div>
 			<div class="entry-text">
 				
@@ -14281,6 +14270,7 @@ public ActionResult Random()
 {
 	// ...
 }
+
 </code>
 				
 			</div>
@@ -14308,6 +14298,7 @@ routes.MapRoute(
 	new { controller = "Movies", action = "ByReleaseDate" },
 	new { year = @"\d{4}", month = @"\d{2}" } // Ogranicavanje parametara.
 );
+
 </code>
 				
 			</div>
@@ -14345,28 +14336,25 @@ routes.MapRoute(
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Angular string `backtick`</div>
+			<div class="entry-keywords">angular, js, ts, javascript, typescript, backtick, `</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+				<p><span class="grayback"></span>Template moze da se prelomi u vise linija ako se stavi izmedju ` umesto imedju ' ili ".</p>
+
 <code>
+@Component({
+	... 
+	template: `
+	&lt;h2>{{ title }}&lt;/h2>
+	&lt;ul>
+			&lt;li *ngFor="let course of courses">
+					{{ course }}
+			&lt;/li>
+	&lt;/ul>
+	`
+})
+
 </code>
 				
 			</div>
@@ -14375,59 +14363,78 @@ routes.MapRoute(
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Angular Asteriks *</div>
+			<div class="entry-keywords">angular, js, ts, javascript, typescript, *, asteriks, asterisk, asterix, ngFor</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+				<p><span class="grayback">Asterisk</span> Kada se koristi direktiva koja modifikuje DOM tako da dodaje ili oduzima element treba da se postavi * ispred direktive. </p>
+
 <code>
+`&lt;ul>
+	&lt;li <b><u>*ngFor</u></b>="">&lt;/li>
+&lt;/ul>`
+
 </code>
-				
+
 			</div>
 		</div>
 
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Field vs Property in C#</div>
+			<div class="entry-keywords">asp.net, c#, field, propety, accessor, define, class, private, public, get, set</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback">Field </span> Field je uglavnom private, koristi se za info koji ne treba da ide van klase.</p>
 				
-				<p><a target="_blank" href=""></a></p>
+<c>
+class Schedule {
+	private int _month;
+}
+</c>				
 				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback">Property</span>
+					Property se moze zamisliti kao wrapper za field. Daje mogucnost da se kontrolise sta ide u field i sta izlazi.<br />
+					Ako zelimo da damo pristup ovom podatku i van klase mozemo napraviti Properti.<br />
+					Properti se pise velikim slovom, isti string kao underlying field, za koji je praksa da sada ima underscore.</p>
 				
-<code>
-</code>
+<c>
+class Schedule {
+	private int _month;
+	public int Month {
+		get { return _month; }
+		set { _month = value; }
+	}
+}
+</c>				
+				
+				<p><span class="grayback">Shorthand</span> Ovako se pravi i Field i Property. </p>
+				
+<c>
+class Schedule {
+	public int Month { get; set; }
+}
+</c>				
+				
+				<p><span class="grayback">Prosirenje aksesora</span> Posto je podatak ovako vec definisan kao Porperty, ako nam kasnije treba, mozemo lako prosiriti aksesore:</p>
+				
+<c>
+class Schedule {
+	public int Month {
+		get { return _month; }
+		set { 
+			if ((value &lt; 0) || (value > 12)) {
+				throw new ArgumentOutOfRangeException();
+			} 
+			else 
+			{
+				_month = value;
+			}
+		}
+	}
+}		
+</c>				
 				
 			</div>
 		</div>
