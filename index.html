@@ -14218,7 +14218,7 @@ export class AppModule { }
 		
 		<div class="entry">
 			<div class="entry-title">ASP.NET Controller return types</div>
-			<div class="entry-keywords">asp.net, controller, return, type, actionresult</div>
+			<div class="entry-keywords">asp.net, controller, return, type, actionresult, empty, class, type, nothing</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">ActionResult</span> Ako kontroleru stavimo da vraca ActionResult to pokriva sve podtipove ActionResult.</p>
@@ -14230,8 +14230,55 @@ public ActionResult Random()
 	return View(movie);
 }
 </code>
+
+<table cellpadding="10px" birder="1px solid black">
+	<tr>
+		<th>Type</th>
+		<th>Helper Method</th>
+	</tr>
+	<tr>
+		<td>ViewResult</td>
+		<td>View()</td>
+	</tr>
+	<tr>
+		<td>PartialResult</td>
+		<td>PartialView()</td>
+	</tr>
+	<tr>
+		<td>ContentResult</td>
+		<td>Content()</td>
+	</tr>
+	<tr>
+		<td>RedirectResult</td>
+		<td>Redirect()</td>
+	</tr>
+	<tr>
+		<td>RedirectToRouteReult</td>
+		<td>RedirectToAction()</td>
+	</tr>
+	<tr>
+		<td>JsonResult</td>
+		<td>Json()</td>
+	</tr>
+	<tr>
+		<td>FileResult()</td>
+		<td>File()</td>
+	</tr>
+	<tr>
+		<td>HttpNotFoundResult</td>
+		<td>HttpNotFound()</td>
+	</tr>
+</table>
+
 				<p><a target="_blank" href="https://www.c-sharpcorner.com/article/different-types-of-action-results-in-asp-net-mvc/">Read More</a></p>
 				
+				<hr />
+				
+				<p>Ako akcija nista ne vraca:</p>
+				
+<c>
+return new EmptyResult();
+</c>				
 				
 			</div>
 		</div>
@@ -14280,7 +14327,7 @@ public ActionResult Random()
 		
 		<div class="entry">
 			<div class="entry-title">ASP.NET custom routes</div>
-			<div class="entry-keywords">asp.net, mvc, custom, routes</div>
+			<div class="entry-keywords">asp.net, mvc, custom, routes, limit, define, ogranicavanje, definisanje, controller, regexp, @</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">Fajl</span> App_Start/RouteConfig.cs</p>
@@ -14516,8 +14563,96 @@ get_class_methods(get_class($myObject));
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">ASP Routes, optional parameter</div>
+			<div class="entry-keywords">asp.net, routes, optional, parameter, UrlParameter.Optional, parametar, opcioni</div>
+			<div class="entry-text">
+				
+<code>
+
+<b>id = UrlParameter.Optional</b>
+
+routes.MapRoute(
+	name: "Default",
+	url: "{controller}/{action}/{id}",
+	defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+);
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">CLR, POCO</div>
+			<div class="entry-keywords">poco, POCO, clr, CLR, object, runtime, common, language</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span> In software engineering, a plain old CLR object (POCO) is a simple object created in the Common Language Runtime (CLR) of the .NET Framework which is unencumbered by inheritance or attributes.</p>
+	
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Primer headera templatea</div>
+			<div class="entry-keywords">header, template, model, view, layout, title, viewbag</div>
+			<div class="entry-text">
+				
+<code>
+@model Vidly.Models.Movie
+@{
+	ViewBag.Title = "Random";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Bootstrap sites</div>
+			<div class="entry-keywords">bootstrap, bts, themes, sites, snippets, </div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://bootswatch.com/">https://bootswatch.com/</a></p>
+				
+				<p><a target="_blank" href="https://getbootstrap.com/">https://getbootstrap.com/</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Visual Studio Code Commenting</div>
+			<div class="entry-keywords">vsc, visual, studio, code, comment, out, komentari</div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td>Dodavanje komentara</td>
+						<td>ctrl + k pa ctrl + c</td>
+					</tr>
+					<tr>
+						<td>Uklanjanje komentara</td>
+						<td>ctrl + k pa ctrl + u</td>
+					</tr>
+				</table>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">ASP.NET Action parametres</div>
+			<div class="entry-keywords">asp.net, action, parameters, form, id, url, encoded</div>
 			<div class="entry-text">
 
 				<table cellpadding="5px" birder="1px solid black">
@@ -14527,19 +14662,134 @@ get_class_methods(get_class($myObject));
 					</tr>
 				</table>
 			
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback"></span>Ako se akciji prosledi parametar, potrazice se parametar tog imena u potpisu metode i ako se nadje, bice mu dodeljena ta vrednost.</p>
 				
-				<p><a target="_blank" href=""></a></p>
+<c>
+public ActionResult Index(int id) 
+{
+	//...
+}
+</c>				
 				
 				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
+					<li>/movies/edit/1</li>
+					<li>movies/edit?id=1</li>
+					<li>form data: id=1</li>
 				</ul>
 				
 <code>
 </code>
 				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">ASP.NET Attribute Routing and Attribute route constraints</div>
+			<div class="entry-keywords">asp.net, attribute, routing, routes, constraints, regexp, map, mvc</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Dodati u RoutesConfig.cs pre svih rute, ali posle routes.IgnoreRoute(...)</p>
+				
+<c>
+routes.MapMvcAttributeRoutes();
+</c>				
+
+				<p><span class="grayback"></span>Iznad contorllera dodati atribut i proslediti url template</p>
+
+<c>
+[Route("movies/released/{year}/{month}")]
+	public ActionResult ByReleaseDate(...)
+	{
+			...
+	}
+</c>				
+				
+				<p><span class="grayback"></span>Ogranicavanje parametara</p>
+
+<c>
+[Route("movies/released/{year}/{month}/{month:regexp(\\d{4}):range(1,12)}")]
+	public ActionResult ByReleaseDate(...)
+	{
+			...
+	}
+</c>					
+				
+				<p><span class="grayback"></span>Ako se ovo uradi, nije potrebno u routes staviti kod.</p>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">ASP.NET Partial view name _convention</div>
+			<div class="entry-keywords">asp.net, partial, view, name, convention, template, pogled, pravilo</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">_PartialViewNa</span> Konvencija je da se nazivima Partial view na pocetak stavi _undersocre.</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">asp.net view comments</div>
+			<div class="entry-keywords">asp.net, vire, comments, komentari, @, pogled</div>
+			<div class="entry-text">
+				
+<code>
+	
+@* Single line comment *@
+
+@* 
+	Multiple line comment
+	Multiple line comment
+*@
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Visual Studio Code + C# kompajliranje shortcuts</div>
+			<div class="entry-keywords">asp.net, vsc, visual, studio, code, shortcuts, keyboard, precica, ctrl, +, shifht, b, kompajliranje, compile, compiling</div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td>ctrl + F5</td>
+						<td>Kompajlira aplikaciju i otvari novi tab u browseru.</td>
+					</tr>
+					
+					<tr>
+						<td>ctrl + shift + b</td>
+						<td>Kompajlira aplikaciju bez otvaranja novog taba u browseru.</td>
+					</tr>
+				</table>
+
+				<p><span class="grayback">View update</span> Kad se samo view menja, ne mora da se rekompajlira aplikacija. Samo refresh browser.</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">ASP.NET Visual Studio Code Rename</div>
+			<div class="entry-keywords">asp.net, vsc, visual, studio, code, rename, f2, F2, select</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Select i F2. Sve reference se automatski renameuju.</p>
+
 			</div>
 		</div>
 
@@ -14844,8 +15094,6 @@ get_class_methods(get_class($myObject));
 		</div>
 
 		<!-- Entry separator -->
-		
-		
 		
 	</div>
 	
