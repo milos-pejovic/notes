@@ -5950,14 +5950,33 @@ get_header();?>
 				<p><span class="grayback">Plugin</span> Instalirati plugin <b>WP-Mail-SMTP</b></p>
 				<p><span class="grayback">Podesavanja</span> Settings -> E-mail</p>
 				<p><span class="grayback">SMTP Host</span> Podesis host-a. Podesavnja mogu biti promenjena vremenom, proveri sa nekim pre upotrebe da li je bilo izmena.</p>
-				
-				<ul>
-					<li><b>SMPT host:</b> s6.paukhost.com</li>
-					<li><b>SMTP Port:</b> 587</li>
-					<li><b>Encryption:</b> Use TLS encryption.</li>
-					<li><b>Authentication:</b> Yes: Use SMTP authentication.</li>
-					<li><b>Username i Password</b> Od svog mejla</li>
-				</ul>
+			
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td><b>SMPT host</b></td>
+						<td>s6.paukhost.com</td>
+					</tr>
+					
+					<tr>
+						<td><b>SMTP Port</b></td>
+						<td>587</td>
+					</tr>
+					
+					<tr>
+						<td><b>Encryption</b></td>
+						<td>Use TLS encryption.</td>
+					</tr>
+					
+					<tr>
+						<td><b>Authentication</b></td>
+						<td>Yes: Use SMTP authentication.</td>
+					</tr>
+					
+					<tr>
+						<td><b>Username i Password</b></td>
+						<td>Od svog mejla</td>
+					</tr>
+				</table>
 			
 			</div>
 		</div>
@@ -6871,6 +6890,7 @@ X-PPP-Vhost: osm.rs
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 </code>		
+<br />
 					<li>Idi na: toolbox.googleapps.com</li>
 					<li>Idi na: Messageheader</li>
 					<li>Paste Headers i analyze</li>
@@ -13699,7 +13719,7 @@ function validateSenderName(nameEntry) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title">MailChimp notifications translation.</div>
+			<div class="entry-title">MailChimp notifications German translation</div>
 			<div class="entry-keywords">mailchimp, newsletter, translation, notifications, strings, message, german, nemacki, German</div>
 			<div class="entry-text">
 
@@ -14229,6 +14249,7 @@ public ActionResult Random()
 	var movie = new Movie() { Name= "Sam!"};
 	return View(movie);
 }
+
 </code>
 
 <table cellpadding="10px" birder="1px solid black">
@@ -14274,10 +14295,11 @@ public ActionResult Random()
 				
 				<hr />
 				
-				<p>Ako akcija nista ne vraca:</p>
+				<p>Ako akcija nista ne vraca, treba:</p>
 				
 <c>
 return new EmptyResult();
+
 </c>				
 				
 			</div>
@@ -14454,7 +14476,7 @@ class Schedule {
 }		
 </c>				
 				
-				<p><a href="https://www.youtube.com/watch?v=q1nQILMqAXA">More - YouTube tutorial</a></p>
+				<p><a target="_blank" href="https://www.youtube.com/watch?v=q1nQILMqAXA">More - YouTube tutorial</a></p>
 				
 			</div>
 		</div>
@@ -14655,13 +14677,6 @@ routes.MapRoute(
 			<div class="entry-keywords">asp.net, action, parameters, form, id, url, encoded</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
 				<p><span class="grayback"></span>Ako se akciji prosledi parametar, potrazice se parametar tog imena u potpisu metode i ako se nadje, bice mu dodeljena ta vrednost.</p>
 				
 <c>
@@ -14796,28 +14811,17 @@ routes.MapMvcAttributeRoutes();
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Domen preko JS-a</div>
+			<div class="entry-keywords">javascript, js, domain, domen, document, location, origin, document.location.origin</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback"></span>Daje domen (url).</p>
 				
 				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+	
 <code>
+document.location.origin
+
 </code>
 				
 			</div>
@@ -14826,28 +14830,18 @@ routes.MapMvcAttributeRoutes();
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Register click outside an element</div>
+			<div class="entry-keywords">javascript, js, click, outside, element, register, event, close, inside, handler</div>
 			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
 				
 <code>
+$(document).click(function(event) { 
+	if(!$(event.target).closest('#menucontainer').length) {
+		if($('#menucontainer').is(":visible")) {
+			$('#menucontainer').hide();
+		}
+	}        
+});
 </code>
 				
 			</div>
