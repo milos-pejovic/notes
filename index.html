@@ -14876,28 +14876,14 @@ $(document).click(function(event) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel get only one column</div>
+			<div class="entry-keywords">laravel, lrv, eloquent, pluck, column, one, only, db, database, get, query</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
 				
 <code>
+Author::pluck('name');
+
 </code>
 				
 			</div>
@@ -14906,28 +14892,30 @@ $(document).click(function(event) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel, Method [validateReqired] does not exist.</div>
+			<div class="entry-keywords">Method [validateReqired] does not exist, laravel, lrv, token, error, form, validate, request, field, problem</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback">Problem</span> Prilikom cuvanja podataka unetih kroz formu pojavi se greska "Method [validateReqired] does not exist." iako ne bi trebalo.</p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+				<p><span class="grayback">Proveriti</span> Ovo se moze desiti ako postoji spelling greska u validacionom kodu.</p>
+
 <code>
+public function save() {
+        
+	$this->validate(request(), [
+			'first-name' => '<b><u>requied</u></b>|min:2',
+			'last-name' => 'required|min:2'
+	]);
+			
+	$author = new Author();
+	$author->name = request('first-name');
+	$author->surname = request('last-name');
+	$author->save();
+	
+	return redirect('/authors');
+}
+		
 </code>
 				
 			</div>
