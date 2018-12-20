@@ -14924,28 +14924,17 @@ public function save() {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Change URL with JS without opening a new page</div>
+			<div class="entry-keywords">javascript, js, url, parameter, change, not, open, page, set, ?, history.pushState</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><a target="_blank" href="https://www.youtube.com/watch?v=XRC0hOh4UGY">YouTube objasnjenje</a></p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+				<p><a target="_blank" href="https://stackoverflow.com/questions/24307401/window-history-pushstate-refreshing-the-browser">https://stackoverflow.com/questions/24307401/window-history-pushstate-refreshing-the-browser</a></p>
+
 <code>
+history.pushState(null, null, '');
+
 </code>
 				
 			</div>
@@ -14954,29 +14943,152 @@ public function save() {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel multilanguage - SREDI BELESKU</div>
+			<div class="entry-keywords">laravel, lrv, language, multi, jezik, selector, eng, deu, default</div>
 			<div class="entry-text">
+	
+<pre>
+Laravel lokalizacija
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
+Resources/lang/en
+
+Za svaki jezik po jedan folder treba da postoji
+
+U svakom folderu ima vise fajlova. Svaki fajl sadrzi prevode za jednu oblast.
+
+U svim folderima treba da postoji fajlovi sa istim imenom.
+
+Primer strukture foldera
+
+resources
+	en
+		greetings.php
+	de
+		greetings.php
+
+Primer engleskog fajla:
+
+&lt;?php
+return array(
+    'hello' => 'Hello'
+		'goodbye' => 'Good Bye'
+);
+
+Primer nemackog fajla:
+
+&lt;?php
+return array(
+    'hello' => 'Guten Tag'
+		'goodbye' => 'Aufwiedersehen'
+);
+
+U template-u:
+{{trans('greetings.hello')}}
+
+ILI
+
+{{Lang::get('greetings.hello')}}
+
+ime-fajla.ime-kljuca
+
+Default jezik:
+Podesava se u app/config/app.
+Podesavanje 'locale' => 'en'
+
+Ima i 'fallback_locale' => 'en'.
+Bice pokrenut ako default locale ne postoji ili ne postoji prevod za uneti kljuc.
+
+Funkcija za definisanje locale-abs
+Lang::setLocale('en');
+Lang::setLocale('de');
+
+===============================================================================
+Gradjenje language choosera, primer
+
+* Forma
+
+&lt;form action="{{ URL::route('language-chooser') }}" method="post">
+	&lt;select name="locale">
+		&lt;option value="en">English&lt;/option>
+		&lt;option value="de" {{ Lang::locale() === 'de' ? 'selected="selected"' : '' }}>German&lt;/option>
+	&lt;/select>
+	
+	&lt;input type="submit" value="Choose" />
+	{{ Form::token() }}
+&lt;/form>
+
+* web.php - ruta
+
+Route::post('/language', array(
+	'before' => 'csrf', -> Proverava CSRF token pre svega drugog
+	'as' => 'language-chooser', -> Alias za rutu. Mora da postoji da bi URL::route('language-chooser') radilo;
+	'uses' => 'LanguageController@chooser'
+));
+
+* LanguageController.php
+
+class LanguageController extends BaseController {
+	public function chooser() {
+		Session::set('locale', Input::get('locale'));
+		return Redirect::back();
+	}
+}
+
+* Middleware
+Napravi preko middleware-a da se 
+Proveri ovo:
+https://stackoverflow.com/questions/36354689/write-function-in-laravel-which-needs-to-execute-before-any-controller
+
+&lt;?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+
+class MyMiddleware
+{
+	/**
+	 * Handle an incoming request.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \Closure  $next
+	 * @return mixed
+	 */
+	public function handle($request, Closure $next)
+	{
+		// call your function
+		$this->setLanguage();
+
+		return $next($request);
+	}
+
+	public function setLanguage()
+	{
+		Lang::setLocale(Session::get('locale'));
+	}
+}
+
+
+
+
+===============================================================================
+
+Ako u definiciji rute damo naziv ruti, mozemo posle da formiramo link ka njoj preko URL klase. Primer:
+
+Route::post('/language', array(
+	'before' => 'csrf',
+	'as' => 'language-chooser', !!!
+	'uses' => 'MyController@myMethod'
+));
+
+Formiranje linka:
+
+URL::route('language-chooser');
+
+
+!!! Proveri da li moze i sa ovim:
+Route::get('/', 'PostsController@index')->name('home');
+</pre>
 				
 			</div>
 		</div>
