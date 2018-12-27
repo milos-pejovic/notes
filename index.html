@@ -15111,28 +15111,54 @@ Route::get('/', 'PostsController@index')->name('home');
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">JS on load, document ready</div>
+			<div class="entry-keywords">javascript, js, jquery, onload, ready, document, window, page, site, ucita, bind, event, run</div>
+			<div class="entry-text">
+			
+				<p>jQuery</p>
+			
+<code>
+$(window).bind("load", function() {
+	// code goes here
+});
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">PHP validation functions: name, email, phone number</div>
+			<div class="entry-keywords">php, validation, form, input, surname, email, e-mail, e mail, phone, function regexp, reg-exp, reg exp, regular, expression, check, provera, validacija</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
 <code>
+function validateNameString(nameString) {
+	if (nameString.match(/[^a-zA-Z\s]/gi) !== null || nameString == '')  {
+		return false;
+	} else {
+		return true;
+	}
+}
+
+function validateEmailString(emailString) {
+	var emailRegExp = '^[\\w\.]+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$';
+
+	if (emailString.match(emailRegExp) == null || emailString == '') {
+		return false;
+	} else {
+		return true;
+	}
+}	
+	
+function validatePhoneString(phoneString) {
+	if (phoneString.match(/[^0-9\s-/]/gi) !== null || phoneString == '')  {
+		return false;
+	} else {
+		return true;
+	}
+}
 </code>
 				
 			</div>
@@ -15200,35 +15226,6 @@ Route::get('/', 'PostsController@index')->name('home');
 
 		<!-- Entry separator -->
 		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
 		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
