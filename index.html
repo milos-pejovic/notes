@@ -15250,28 +15250,83 @@ class UsersTableSeeder extends Seeder
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel and React JWT</div>
+			<div class="entry-keywords">laravel, lrv, react, jwt, JSON, json, web, token, tutorial, documentation, help, link, reference, authorization, authorisation</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
+				<p><a target="_blank" href="https://medium.com/@Gbxnga/token-based-authentication-with-react-and-laravel-restful-api-83f16581e85">https://medium.com/@Gbxnga/token-based-authentication-with-react-and-laravel-restful-api-83f16581e85</a></p>
+	
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">NetBeans show file path</div>
+			<div class="entry-keywords">netbeans, nb, show, file, path, full, tab, options, </div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Tools -> Options -> Appearance -> Document Tabs -> Show full file path. M.</p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel middleware, prosledjivanje parametara middleware-u</div>
+			<div class="entry-keywords">laravel, lrv, middleware, parameter, parametar, pass, prosledjivanje, proslediti, route</div>
+			<div class="entry-text">
 			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback">Ruta:</span></p>
 				
 <code>
+Route::middleware('mw1:Peter,Peterson')->group(function() {
+	Route::get('test', function() {
+		echo 'Test Middleware';
+	});
+});
+</code>
+				
+				<p><span class="grayback">Middleware:</span></p>
+				
+<code>
+public function handle($request, Closure $next, $name = null, $surname = null)
+	{
+		error_log('Firing MW1');
+		error_log('NAME: ' . $name);
+		error_log('SURNAME: ' . $surname);
+		return $next($request);
+	}
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel multiple user types YouTube tutorial</div>
+			<div class="entry-keywords">laravel, lrv, multiple, users, tutorial, role, admin, user, middleware</div>
+			<div class="entry-text">
+			
+				<p><a target="_blank" href="https://www.youtube.com/watch?v=iKRLrJXNN4M">https://www.youtube.com/watch?v=iKRLrJXNN4M</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel redirect posle logina tamo gde je user hteo da ode</div>
+			<div class="entry-keywords">laravel, lrv, redirect, return, back, intended, login</div>
+			<div class="entry-text">
+			
+				<p><span class="grayback"></span>Ako middleware spreci korisnika da ode neku stranu jer nije bio ulogovan, mozemo upotrebiti <c>intended()</c> da ga posle (uspesnog) logina redirektujemo na tu stranu.</p>
+
+<code>
+return redirect()->intended();
+
 </code>
 				
 			</div>
@@ -15369,6 +15424,65 @@ class UsersTableSeeder extends Seeder
 
 		<!-- Entry separator -->
 		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
 		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
