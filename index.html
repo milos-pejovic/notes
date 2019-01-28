@@ -8136,7 +8136,7 @@ go to the ‘view’ action, while PUT requests will go to the ‘update’ acti
 			<div class="entry-text">
 			
 				<p><span class="grayback">Cheatsheet</span></p>
-				<p><a target="_blank" href="http://cheats.jesse-obrien.ca/">http://cheats.jesse-obrien.ca/</a></p>
+				<p><a target="_blank" href="https://laravel.gen.tr/cheatsheet/">https://laravel.gen.tr/cheatsheet/</a></p>
 				<hr />
 				
 				<p><span class="grayback">Tutorial</span></p>
@@ -15167,58 +15167,81 @@ function validatePhoneString(phoneString) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">NetBeans small menu</div>
+			<div class="entry-keywords">netbeans, nb, small, menu, problem, error, view, scaling, scale, increase, size, font</div>
 			<div class="entry-text">
+<pre>
+Windows 10 does this for you now. 
+Right click on your Netbeans shortcut (C:\ProgramData\Microsoft\Windows\Start Menu\Programs\NetBeans) and select Properties. 
+Go to the Compatibility tab and then select Change High DPI Settings. 
+From there, check the Override High DPI Scaling box and set it to System.
+</pre>
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
 			</div>
 		</div>
 
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel seeder example</div>
+			<div class="entry-keywords">laravel, lrv, seeder, example, snippet, primer, database, db, populate, dummy, data</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback">Location</span> web -> database -> seeds</p>
 				
 <code>
+&lt;?php
+
+use Carbon\Carbon;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+
+class UsersTableSeeder extends Seeder
+{
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		$data = [
+			[
+				'name' => '[test] super admin',
+				'public_name' => '[test] master blaster',
+				'email' => 'test@gmail.com',
+				'phone' => '123456789',
+				'rights' => 1,
+				'status' => 1,
+				'password' => bcrypt('testsuperadmin'),
+				'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+				'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+			], [
+				'name' => '[test] Ladies inc.',
+				'public_name' => '[test] LL Cool J',
+				'email' => 'llcoolj@gmail.com',
+				'phone' => '123456789',
+				'rights' => 2,
+				'status' => 1,
+				'password' => bcrypt('testsecretllcoolj'),
+				'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+				'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+			], [
+				'name' => '[test] Jane Doe',
+				'public_name' => '[test] lucky lady',
+				'email' => 'lucky@gmail.com',
+				'phone' => '123456789',
+				'rights' => 4,
+				'status' => 1,
+				'password' => bcrypt('testluckylady'),
+				'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+				'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+			]
+		];
+		DB::table('users')->insert($data);
+	}
+}
+
 </code>
 				
 			</div>
