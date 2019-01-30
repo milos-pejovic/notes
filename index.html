@@ -9260,7 +9260,7 @@ php artisan serve
 		
 		<div class="entry">
 			<div class="entry-title">Laravel, problem sa migracijom</div>
-			<div class="entry-keywords">lrv, laravel, error, greska, problem, migration, Syntax error or access violation:, artisan, migrate, database, Specified key was too long, PDOException::("SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes")</div>
+			<div class="entry-keywords">lrv, laravel, error, greska, problem, migration, Syntax error or access violation:, artisan, migrate, database, Specified key was too long, PDOException::("SQLSTATE[42000]: Syntax error or access violation: 1071 Specified key was too long; max key length is 1000 bytes"), new, nov, pravljenje, create, local</div>
 			<div class="entry-text">
 
 				<p><a target="_blank" href="https://laravel-news.com/laravel-5-4-key-too-long-error">https://laravel-news.com/laravel-5-4-key-too-long-error</a></p>
@@ -9350,7 +9350,7 @@ public function scopeIncomplete($query, $val) {
 			<p>Ovaj scope mozemo da koristimo u chainovanju.</p>
 
 <c>
-	App\Post::incomplete()->where('id', '>', 3)->get();
+App\Post::incomplete()->where('id', '>', 3)->get();
 	
 </c>
 
@@ -9385,7 +9385,7 @@ public function show(<gb>Task $task</gb>) {
 		
 		<div class="entry">
 			<div class="entry-title">Naming conventions for request type of CRUD process</div>
-			<div class="entry-keywords">crud, create, edit, delete, request, get, post, patch, convention, lrv</div>
+			<div class="entry-keywords">crud, create, edit, delete, request, get, post, patch, convention, lrv, route, routing, web.php</div>
 			<div class="entry-text">
 
 				<table>
@@ -9534,6 +9534,19 @@ public function store() {
 			<div class="entry-keywords">laravel, lrv, validate, validation, form, input, field, submit</div>
 			<div class="entry-text">
 
+			
+<code>
+public function store() {
+	<gb>$this->validate(request(), [
+		'title' => ['reqired', 'min:2', 'max:10'],
+		'body' => ['required']
+	]);</gb>
+
+	Post::create(request(['title', 'body']));
+	return redirect('/posts');
+}
+</code>			
+			
 				<p><span class="grayback">Primer</span> Kontrolera sa validacijom.</p>
 				
 <code>
@@ -15326,7 +15339,176 @@ public function handle($request, Closure $next, $name = null, $surname = null)
 
 <code>
 return redirect()->intended();
+</code>
+				
+				<p><span class="grayback">Default lokacija</span> Ako je korisnik direktno dosao na login formu i nema intended url, moze se odrediti default.</p>
+				
+<c>
+return redirect()->intended('neki.url');
 
+// Sa 'named route'
+
+return redirect()->intended(route('my.route.name'));
+
+</c>				
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel, redirekcija posle neuspesnog logina uz prosledjivanje unetih vrednosti</div>
+			<div class="entry-keywords">laravel, lrv, login, failed, redirect, back, values, input, field, return, pass</div>
+			<div class="entry-text">
+				
+				<p><span class="grayback"></span>Posle nesupesnog logina (ako je u pitanju metoda za validaciju logina) vraca na prethodnu stranu (u ovom slucaju login stranu.)</p>
+				
+<code>
+return redirect()->back();
+</code>
+				
+				<p><span class="grayback"></span>Isto kao gore, ali prosledjuje vrednosti koje je korisnik uneo. Te vrednosti su ogranicene na 'email' i 'first-name'.</p>
+				
+<code>
+return redirect()->back()->withImput($request->only('email', 'first-name'));
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel encryptovanje sifre</div>
+			<div class="entry-keywords">laravel, lrv, password, encrypt, sifra, enkriptovanje, has, Hash, bcrypt, class</div>
+			<div class="entry-text">
+				
+<code>
+$myPassword = 'abc';
+Hash::make($myPassword);
+
+// vraca:
+
+$2y$10$Zq1wHfFcFa0MXXVEq7PYO.ZuW5r0wVUSd3Ps2VaxcnMch0bimtELu
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel multiauth, vise vrsta usera</div>
+			<div class="entry-keywords">laravel, lrv, multiauth, user, multiple, vise, login, register, superadmin</div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href="https://www.youtube.com/watch?v=iKRLrJXNN4M">https://www.youtube.com/watch?v=iKRLrJXNN4M</a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel Form Blade helpers</div>
+			<div class="entry-keywords">laravel, lrv, form, blade, helper, {{}}, csrf, method</div>
+			<div class="entry-text">
+				
+<code>
+@method('DELETE') je isto sto i {{ method_field('DELETE') }}
+@csrf je isto sto i {{ csrf_field() }}
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel findOrFail()</div>
+			<div class="entry-keywords">laravel, lrv, find, findOrFail, db, database, 404, load, id, ne, postoji</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Ako unesemo rutu poput <c>.../project/25/edit</c>, projekat sa tim IDjem ne psotoji, a koristimo find($id), dobijamo Laravel gresku. <br />Da ovo izbegnemo, koristimo <c>findOrFail($id)</c>, ovo vraca 404 ako taj rekord ne postoji.</p>
+		
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel form error marking</div>
+			<div class="entry-keywords">laravel, lrv, error, form, input, submit, class</div>
+			<div class="entry-text">
+
+				
+<code>
+&lt;input type="text" class="input {{ $errors->has('title') ? 'is-danger' : '' }}" name="title">
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel Service Container</div>
+			<div class="entry-keywords">laravel, lrv, service, container, app, resolve, singleton, bind, auto, resolution, auto-resolution</div>
+			<div class="entry-text">
+				
+<code>
+// This way we get a new/separate instance of this every time we resolve it.
+app()->bind('example', function() {
+	return new \App\Example(5);
+});
+
+// This way we always get the same instance of this every time we resolve it.
+app()->singleton('example', function() {
+	return new \App\Example;
+});
+
+// Every time we call "\App\Services\Twitter" we get the same instance with the passed API key.
+app()->singleton('\App\Services\Twitter', function() {
+	return new \App\Services\Twitter('My-API-Key-23432oids9034209328');
+});
+
+app()->bind('App\Example', function(){
+	return new \App\Example(7);
+});
+
+Route::get('/a', function() {
+	dd(app('App\Example'));
+	// This will work as well, even if we have not bound anything into the service container.
+	dd(app('App\Example'));
+});
+
+//app();
+//resolve();
 </code>
 				
 			</div>
@@ -15483,6 +15665,217 @@ return redirect()->intended();
 		</div>
 
 		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" birder="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
 		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
