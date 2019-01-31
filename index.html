@@ -5951,7 +5951,7 @@ get_header();?>
 				<p><span class="grayback">Podesavanja</span> Settings -> E-mail</p>
 				<p><span class="grayback">SMTP Host</span> Podesis host-a. Podesavnja mogu biti promenjena vremenom, proveri sa nekim pre upotrebe da li je bilo izmena.</p>
 			
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td><b>SMPT host</b></td>
 						<td>s6.paukhost.com</td>
@@ -10010,12 +10010,12 @@ view()->composer(['layouts.sidebar', 'layouts.sthelse'], function($view) {
 		
 		<div class="entry">
 			<div class="entry-title">Namespace/folder structure problem</div>
-			<div class="entry-keywords">namespace, folder, structure, autoload, framework, use, defer</div>
+			<div class="entry-keywords">namespace, folder, structure, autoload, framework, use, defer, error, problem, /, \, fqcn, FQCN, fully, qualified, class, name</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">Problem</span> U fajlu radimo <b>use</b> plus FQCN neke klase, ali se prijavluje greska da ne psotoji ta klasa.</p>
 				
-				<p>* Ponekad u frameworcima autolaod podeli namespace po "/" i onda u folder structure pretrazuje koristeci nazice tako dobijene. Proveri da li se namespace poklapa sa nazivima foldera.</p>
+				<p>* Ponekad u frameworcima autolaod podeli namespace po "/" i onda u folder structure pretrazuje koristeci nazive tako dobijene. Proveri da li se namespace poklapa sa nazivima foldera.</p>
 	
 				<p>Npr FQCN <c>\App\<gb>Repository</gb>\Posts</c> a folder structure je <c>app/<gb>repositores</gb>/Posts.php</c></p>
 	
@@ -14124,7 +14124,7 @@ object</p>
 			<div class="entry-keywords">visual, studio, code, terminal, console, shortcut, open, vsc, files, panel</div>
 			<div class="entry-text">
 				
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td>Terminal</td>
 						<td>ctrl + `</td>
@@ -14265,7 +14265,7 @@ public ActionResult Random()
 
 </code>
 
-<table cellpadding="10px" birder="1px solid black">
+<table cellpadding="10px" border="1px solid black">
 	<tr>
 		<th>Type</th>
 		<th>Helper Method</th>
@@ -14669,7 +14669,7 @@ routes.MapRoute(
 			<div class="entry-keywords">vsc, visual, studio, code, comment, out, komentari</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td>Dodavanje komentara</td>
 						<td>ctrl + k pa ctrl + c</td>
@@ -14792,7 +14792,7 @@ routes.MapMvcAttributeRoutes();
 			<div class="entry-keywords">asp.net, vsc, visual, studio, code, shortcuts, keyboard, precica, ctrl, +, shifht, b, kompajliranje, compile, compiling</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td>ctrl + F5</td>
 						<td>Kompajlira aplikaciju i otvari novi tab u browseru.</td>
@@ -15405,7 +15405,7 @@ $2y$10$Zq1wHfFcFa0MXXVEq7PYO.ZuW5r0wVUSd3Ps2VaxcnMch0bimtELu
 			<div class="entry-keywords">laravel, lrv, multiauth, user, multiple, vise, login, register, superadmin</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15517,11 +15517,328 @@ Route::get('/a', function() {
 		<!-- Entry separator -->
 		
 		<div class="entry">
+			<div class="entry-title">Laravel Route::resource()</div>
+			<div class="entry-keywords">laravel, lrv, web.php, route, resource, only, index, show, controller, ::</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Ovako mozemo jedon linijom da napravio sve rute za jedan resurs.</p>
+				
+<code>
+Route::resource('authors', 'AuthorsController');
+
+</code>				
+				
+				<table cellpadding="5px">
+					<tr>
+						<td>GET|HEAD</td>
+						<td>authors</td>
+						<td>authors.index </td>
+						<td>App\Http\Controllers\AuthorsController@index</td>
+						<td>web</td>
+					</tr>
+					<tr>
+						<td>POST</td>
+						<td>authors</td>
+						<td>authors.store </td>
+						<td>App\Http\Controllers\AuthorsController@store</td>
+						<td>web</td>
+					</tr>
+					<tr>
+						<td>GET|HEAD</td>
+						<td>authors/create</td>
+						<td>authors.cerate </td>
+						<td>App\Http\Controllers\AuthorsController@create</td>
+						<td>web</td>
+					</tr>
+					<tr>
+						<td>GET|HEAD</td>
+						<td>authors/{author}</td>
+						<td>authors.show </td>
+						<td>App\Http\Controllers\AuthorsController@show</td>
+						<td>web</td>
+					</tr>
+					<tr>
+						<td>DELETE</td>
+						<td>authors/{author}</td>
+						<td>authors.delete </td>
+						<td>App\Http\Controllers\AuthorsController@destroy</td>
+						<td>web</td>
+					</tr>
+					<tr>
+						<td>PUT|PATCH</td>
+						<td>authors/{author}</td>
+						<td>authors.update </td>
+						<td>App\Http\Controllers\AuthorsController@update</td>
+						<td>web</td>
+					</tr>
+					<tr>
+						<td>GET|HEAD</td>
+						<td>authors/{author}/edit</td>
+						<td>authors.edit</td>
+						<td>App\Http\Controllers\AuthorsController@edit</td>
+						<td>web</td>
+					</tr>
+				</table>
+
+<hr />
+
+<p><span class="grayback"></span>Ovako pravimo samo "index" i "show" rute.</p>
+
+<code>
+Route::resource('authors', 'AuthorsController', ['only' => ['index', 'show']]);
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel env helper function</div>
+			<div class="entry-keywords">laravel, lrv, helper, function, environment, variable, promenljiva, global</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Pogledaj u .env fajl i potrazi "MAIL_DRIVER" podesavanje.<br />
+				Ako nadjes, dodeli njegovu vrednost promenljivoj $x.<br />
+				Ako ne nadjes, dodeli vrednost "smtp" promenljivoj $x.</p>
+				
+<code>
+$x = env('MAIL_DRIVER', 'smtp');
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel config</div>
+			<div class="entry-keywords">laravel, lrv, config, environment, production, development, key, private, public, store, git, ignore, problem, cache, not, load, ne, ucitava</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>U fajlu npr <c>config/servcies.php</c> imamo kod:</p>				
+				
+<code>
+'twitter' => [
+	'public' => env('TWITTER_PUBLIC'),
+	'private' => env('TWITTER_PRIVATE')
+]
+</code>
+
+				<hr />
+				
+				<p><span class="grayback"></span>U <c>.env</c> imamo kod:</p>				
+				
+<code>
+TWITTER_PUBLIC=public-key-klJIU98&B89B)(9-09r430-me
+TWITTER_PRIVATE=private-key-ljIm90()*N87b&B*(90_N*0-n)(()_
+</code>
+				
+				<hr />
+				
+				<p><span class="grayback">Cache</span> Moguce je cache-irati sve config fajlove u jedan da bi se brze ucitavali.<br />Nema potrebe da se ovo radi u developmentu.</p>	
+				
+<code>
+php artisan config:cache // Pravi cache fajl
+php artisan config:clear // Brise cache fajl
+</code>				
+				
+				<p><span class="grayback">Upozorenje!</span> Dok cache-iran fajl postoji izmene u originalnim fajlovima se nece primenjivati. <br /> Mora ili da se ponovo napravi cache fajl ili da se izbrise.</p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel foreign key in migration</div>
+			<div class="entry-keywords">laravel, lrv, migration, foreign, key, table, reference, onupdate, ondelete, relation</div>
+			<div class="entry-text">
+		
+<code>
+public function up()
+{
+	Schema::create('user_category', function (Blueprint $table) {
+		$table->integer('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+		$table->integer('category_id')->references('id')->on('categories')->onDelete('cascade');
+		
+		// Ili
+		
+		$table->unsignedInteger('owner_id');		
+		$table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
+
+	});
+}
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel Policy</div>
+			<div class="entry-keywords">laravel, lrv, policy, authorization, authorisation, authorize, authorise, abort_if, abort_unless, user, auth, index, show, delete, update, edit, signed-in, gate::, Gate::, id</div>
+			<div class="entry-text">
+				
+				<p><a target="_blank" href="https://laracasts.com/series/laravel-from-scratch-2018/episodes/27">https://laracasts.com/series/laravel-from-scratch-2018/episodes/27</a></p>
+
+				<hr />
+				
+			<p><span class="grayback">Artisan komanda</span> Fajl ce biti u <c>app/Policies</c></p>
+			
+<code>
+php artisan make:policy BookPolicy
+</code>
+			
+			<hr />
+			
+			<p><span class="grayback">Bolierplate</span> Dodaje u Policy fajlu po metodu za svaku akciju sa entitetom (show, update, index, delete...).</p>
+			
+<code>
+php artisan make:policy BookPolicy --model=Book
+</code>			
+			
+			<hr />
+			
+			<p><span class="grayback">Registrovanje</span> Policy mora da se registruje.<br />
+			U fajlu <c>app/Providers/AuthServiceProvider.php</c> dodati liniju.<br />
+			Spajamo model i policy.</p>
+			
+<c>
+protected $policies = [
+	'App\Book' => 'App\Policies\BookPolicy'
+];
+</c>			
+
+			<hr />
+			
+			<p><span class="grayback">Metoda u Policy-ju</span></p>
+
+<c>
+public function view(User $user, Book $book)
+{
+	return $book->author_id == $user->id;
+}
+</c>			
+			
+			<hr />
+			
+			<p><span class="grayback"></span>U kontroleru<br />
+			'view' je naziv metode u Policy-ju</p>
+			
+<c>
+$this->authorize('view', $book)
+</c>
+			
+			<hr />
+			
+			<p><span class="grayback">Pogldaj</span> Upotreba metode CAN i CANNOT, kao i abort_if i abort_unless</p>
+			
+			<hr />
+			
+			<p><span class="grayback">Primer Policy-ja</span></p>
+			
+<c>
+&lt;?php
+
+namespace App\Policies;
+
+use App\User;
+use App\Book;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class BookPolicy
+{
+	use HandlesAuthorization;
+
+	/**
+	 * Determine whether the user can view the book.
+	 *
+	 * @param  \App\User  $user
+	 * @param  \App\Book  $book
+	 * @return mixed
+	 */
+	public function view(User $user, Book $book)
+	{
+		//
+	}
+
+	/**
+	 * Determine whether the user can create books.
+	 *
+	 * @param  \App\User  $user
+	 * @return mixed
+	 */
+	public function create(User $user)
+	{
+		//
+	}
+
+	/**
+	 * Determine whether the user can update the book.
+	 *
+	 * @param  \App\User  $user
+	 * @param  \App\Book  $book
+	 * @return mixed
+	 */
+	public function update(User $user, Book $book)
+	{
+		//
+	}
+
+	/**
+	 * Determine whether the user can delete the book.
+	 *
+	 * @param  \App\User  $user
+	 * @param  \App\Book  $book
+	 * @return mixed
+	 */
+	public function delete(User $user, Book $book)
+	{
+		//
+	}
+
+	/**
+	 * Determine whether the user can restore the book.
+	 *
+	 * @param  \App\User  $user
+	 * @param  \App\Book  $book
+	 * @return mixed
+	 */
+	public function restore(User $user, Book $book)
+	{
+		//
+	}
+
+	/**
+	 * Determine whether the user can permanently delete the book.
+	 *
+	 * @param  \App\User  $user
+	 * @param  \App\Book  $book
+	 * @return mixed
+	 */
+	public function forceDelete(User $user, Book $book)
+	{
+		//
+	}
+}
+</c>			
+			
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15551,7 +15868,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15581,7 +15898,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15611,7 +15928,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15641,7 +15958,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15671,7 +15988,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15701,7 +16018,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15731,7 +16048,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
@@ -15761,157 +16078,7 @@ Route::get('/a', function() {
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" birder="1px solid black">
+				<table cellpadding="5px" border="1px solid black">
 					<tr>
 						<td></td>
 						<td></td>
