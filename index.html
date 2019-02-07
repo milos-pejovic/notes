@@ -15861,30 +15861,95 @@ class BookPolicy
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel custom Validation Rules</div>
+			<div class="entry-keywords">laravel, lrv, custom, form, validate, validator, rule, input, field, check, method, request, validation</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><a target="_blank" href="https://medium.com/@taylorotwell/custom-validation-rules-in-laravel-5-5-c6cb250f65df">https://medium.com/@taylorotwell/custom-validation-rules-in-laravel-5-5-c6cb250f65df</a></p>
+	
+<c>
+&lt;?php
+namespace App\Rules;
+use App\Source;
+use Illuminate\Contracts\Validation\Rule;
+class ValidRepository implements Rule
+{
+	/**
+	 * The source control provider instance.
+	 *
+	 * @var \App\Source
+	 */
+	public $source;
+	/**
+	 * The branch name.
+	 *
+	 * @var string
+	 */
+	public $branch;
+	/**
+	 * Create a new rule instance.
+	 *
+	 * @param  \App\Source  $source
+	 * @param  string  $branch
+	 * @return void
+	 */
+	public function __construct($source, $branch)
+	{
+		$this->source = $source;
+		$this->branch = $branch;
+	}
+	/**
+	 * Determine if the validation rule passes.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed  $value
+	 * @return bool
+	 */
+	public function passes($attribute, $value)
+	{
+		if (! $this->source instanceof Source) {
+			return false;
+		}
+		return $this->source->client()->validRepository(
+			$value, $this->branch
+		);
+	}
+	/**
+	 * Get the validation error message.
+	 *
+	 * @return string
+	 */
+	public function message()
+	{
+		return 'The given repository is invalid.';
+	}
+}
+</c>	
+
+<p>Let’s digest this code. The passes method will receive the $attribute and $value arguments from the Laravel Validator. The $attribute is the name of the field under validation, while the $value is the value of the field. This method only needs to return true or false , depending on whether the given value is valid or not.</p>
+
+<p>In my example, the Source object is an Eloquent model that represents a source control provider such as GitHub.</p>
+
+<p>The message method should return the appropriate error message to be used when validation fails. Of course, within this method you may retrieve a string from your translation files.</p>
+
+				<h2>Using The Rule</h2>
+
+				<p>Once we have defined our custom validation rule, we can use it during a request. To assign the rule to an attribute, we simply instantiate it within our array of rules. In this example, I’ll use the validate method, which is available directly from the Request object in Laravel 5.5:</p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
+<c>
+
+&lt;?php
+use App\Rules\ValidRepository;
+$request->validate([
+	'repository' => [
+		'required', 
+		new ValidRepository($this->source(), $request->branch)
+	]
+]);
+</c>				
+	
+<p>Of course, you could also use your custom rule from within a Form Request or any other location where you perform validation.</p>	
+	
 			</div>
 		</div>
 
