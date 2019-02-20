@@ -16011,28 +16011,79 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">OAuth 2.0 terminology</div>
+			<div class="entry-keywords">oauth 2.0, terminology, help, docs, client, resource, server, user, owner, grant, authorization, access, token, scope, jwt, client</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
+			<p><a target="_blank" href="https://oauth2.thephpleague.com/terminology/">https://oauth2.thephpleague.com/terminology/</a></p>
 			
-				<p><span class="grayback"></span></p>
+<article>
+<h1 id="terminology">Terminology</h1>
+<ul>
+<li><code class="highlighter-rouge">Access token</code> - A token used to access protected resources.</li>
+<li><code class="highlighter-rouge">Authorization code</code> - An intermediary token generated when a user authorizes a client to access protected resources on their behalf. The client receives this token and exchanges it for an access token.</li>
+<li><code class="highlighter-rouge">Authorization server</code> - A server which issues access tokens after successfully authenticating a client and resource owner, and authorizing the request.</li>
+<li><code class="highlighter-rouge">Client</code> - An application which accesses protected resources on behalf of the resource owner (such as a user). The client could be hosted on a server, desktop, mobile or other device.</li>
+<li><code class="highlighter-rouge">Grant</code> - A grant is a method of acquiring an access token.</li>
+<li><code class="highlighter-rouge">Resource server</code> - A server which sits in front of protected resources (for example “tweets”, users’ photos, or personal data) and is capable of accepting and responsing to protected resource requests using access tokens.</li>
+<li><code class="highlighter-rouge">Resource owner</code> - The user who authorizes an application to access their account. The application’s access to the user’s account is limited to the “scope” of the authorization granted (e.g. read or write access).</li>
+<li><code class="highlighter-rouge">Scope</code> - A permission.</li>
+<li><code class="highlighter-rouge">JWT</code> - A JSON Web Token is a method for representing claims securely between two parties as defined in <a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a>.</li>
+</ul>
+</article>
 				
-				<p><a target="_blank" href=""></a></p>
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel testing docs</div>
+			<div class="entry-keywords">laravel, lrv, testing, documentation, docs, help, link</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://laravel.com/docs/5.1/testing">https://laravel.com/docs/5.1/testing</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">PHPUnit "Could not open input file C:\bin\phpinput.phar"</div>
+			<div class="entry-keywords">phpunit, error, problem, Could not open input file C:\bin\phpinput.phar, help, link docs</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Proveri da li naziv fajla ima verziju u sebi. Npr <c>phpunit-6.5.14.phar</c>. Ako da, izbrisi verziju iz naziva npr <c>phpunit.phar</c></p>
 				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><a target="_blank" href="https://stackoverflow.com/questions/37047784/phpunit-could-not-open-input-file">https://stackoverflow.com/questions/37047784/phpunit-could-not-open-input-file</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">PHPUnit nekoriscenje prave baze, vec baze u memoriji za tetsiranje, phpunit.xml</div>
+			<div class="entry-keywords">phpunit, test, laravel, lrv, database, db, table, xml, php</div>
+			<div class="entry-text">
+			
+				<p><span class="grayback"></span>U Fajlu <c>/phpunit.php</c> se nalaze podesavanja koja su paralela onima iz <c>.env</c>.<br /> Ako se isto podesavanje nadje u oba fajla, phpunit ce koristiti ono iz phpunit.xml.<br /> Da se tokom testiraja ne bi koristila prava baza, dodati sledece linije:</p>
+
 				
 <code>
+ &lt;/filter>
+	&lt;php>
+		&lt;env name="APP_ENV" value="testing"/>
+		&lt;env name="BCRYPT_ROUNDS" value="4"/>
+		&lt;env name="CACHE_DRIVER" value="array"/>
+		&lt;env name="SESSION_DRIVER" value="array"/>
+		&lt;env name="QUEUE_DRIVER" value="sync"/>
+		&lt;env name="MAIL_DRIVER" value="array"/>
+		<b><u>&lt;env name="DB_CONNECTION" value="sqlite"/></u></b>
+		<b><u>&lt;env name="DB_DATABASE" value=":memory:"/></u></b>
+	&lt;/php>
+&lt;/phpunit>
 </code>
 				
 			</div>
@@ -16041,28 +16092,20 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel testiranje, baza</div>
+			<div class="entry-keywords">laravel, lrv, test, database, db, not, use, refresh refreshdatabase, persist, use, trait</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p>Da bi se baza posle svakog testa vratila u predjasnje stanje, u testovima korisititi:</p>
+
 				
 <code>
+// namespace
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+// trait
+use RefreshDatabase;
+
 </code>
 				
 			</div>
@@ -16071,118 +16114,17 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel faker</div>
+			<div class="entry-keywords">lrv, laravel, faker, testing, use, trait, namespace</div>
 			<div class="entry-text">
-
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
 				
 <code>
-</code>
-				
-			</div>
-		</div>
+// namespace
+use Illuminate\Foundation\Testing\WithFaker;
 
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
+// trait
+use WithFaker;
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
 </code>
 				
 			</div>
