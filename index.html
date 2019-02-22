@@ -12425,7 +12425,23 @@ $factory->define(App\Post::class, function (Faker $faker) {
 });
 
 </code>
-				
+			<p>Primer 2</p>	
+<c>
+use Faker\Generator as Faker;
+use App\Author;
+
+$factory->define(App\Author::class, function (Faker $faker) {
+	return [
+		'first_name' => $faker->firstName,
+		'last_name' => $faker->lastName,
+		'about' => $faker->paragraph,
+		'email' => $faker->safeEmail
+	];
+});
+</c>				
+		
+<p>Ako aplikacija salje emejlove treba koristiti <c>$faker->safeEmail</c> jer ona pravi lazni emejl, a <c>$faker->email</c> moze slucajno stvoriti pravi emejl.</p>
+		
 			</div>
 		</div>
 
@@ -16093,18 +16109,17 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
 		
 		<div class="entry">
 			<div class="entry-title">Laravel testiranje, baza</div>
-			<div class="entry-keywords">laravel, lrv, test, database, db, not, use, refresh refreshdatabase, persist, use, trait</div>
+			<div class="entry-keywords">laravel, lrv, test, database, db, not, use, databasetransactions, persist, use, trait</div>
 			<div class="entry-text">
 
 				<p>Da bi se baza posle svakog testa vratila u predjasnje stanje, u testovima korisititi:</p>
 
-				
 <code>
 // namespace
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 // trait
-use RefreshDatabase;
+use DatabaseTransactions;
 
 </code>
 				
@@ -16125,6 +16140,306 @@ use Illuminate\Foundation\Testing\WithFaker;
 // trait
 use WithFaker;
 
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel factories docs</div>
+			<div class="entry-keywords">laravel, lrv, factory, factories, help, link, docs</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://scotch.io/tutorials/generate-dummy-laravel-data-with-model-factories">https://scotch.io/tutorials/generate-dummy-laravel-data-with-model-factories</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel factories MAKE vs CREATE</div>
+			<div class="entry-keywords">laravel, lrv, factory, factories, make, create, vs, database, db, persist, test</div>
+			<div class="entry-text">
+
+<code>
+// NE STVARA unose u bazi
+$x = factory(\App\Author::class, 2)->make();
+
+// STVARA unose u bazi
+$x = factory(\App\Author::class, 2)->create();
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel factory related models</div>
+			<div class="entry-keywords">laravel, lrv, related, model, test, factory, factories, , phpunit, code, cnippet, help, example</div>
+			<div class="entry-text">
+
+				
+<code>
+factory(\App\Author::class, 2)->create()->each(function($a) {
+	for ($i = 0; $i &lt; 3; $i++) {
+		$a->books()->save(factory(\App\Book::class)->make());
+	}
+});
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel sa phpunit i xdebug, code coverage exception</div>
+			<div class="entry-keywords">laravel, lrv, code, coverage, phpunit, xdebug, exception, ignore, sentry, app</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>U kod se stavi:</p>
+				
+<code>
+// @codeCoverageIgnoreStart
+app('sentry')->captureException($exception);
+// @codeCoverageIgnoreEnd
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel start phpunit from vendor/bin</div>
+			<div class="entry-keywords">laravel, lrv, phpunit, vendor, test, start, project, xml, configuration</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">Npr.</span> Uci u fodler vendor/bin pa kucati <c>phpunit --configuration ../../phpunit.xml</c></p>
+				
+				<p><a target="_blank" href=""></a></p>
+	
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">JWT - Jason Web Token playground</div>
+			<div class="entry-keywords">jwt, jason, web, token, testing, site, link, help, practice, encode, decode, online</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://jwt.io/">https://jwt.io/</a></p>
+		
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Mobile testing na Chromu, koji uredjaj izabrati</div>
+			<div class="entry-keywords">chrome, test, mobile device, screen, size, responsive, px</div>
+			<div class="entry-text">
+
+			<p>"Obicno iphone 6+,7,8 jer je to sada najcesce velicina telefona, kao i pixel recimo
+veliki ekrani, najmanje ima iphone 5 velicina ekrana"</p>
+		
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Laravel passport docs</div>
+			<div class="entry-keywords">lrv, laravel, passport, documentation, link, help, tutorial, example, code, oauth 2.0, jwt, JWT</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://laravel.com/docs/5.5/passport">https://laravel.com/docs/5.5/passport</a></p>
+		
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
 </code>
 				
 			</div>
