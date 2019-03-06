@@ -16297,29 +16297,31 @@ veliki ekrani, najmanje ima iphone 5 velicina ekrana"</p>
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel seeder se ne poziva</div>
+			<div class="entry-keywords">laravel, lrv, seeder, factory, call, db, database, databaseseeder.php, error, problem</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
+				<p><span class="grayback"></span>Da bi se seeder primenio mora biti pzovan u <c>database/seeds/DatabaseSeeder.php</c></p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
+<c>
+use Illuminate\Database\Seeder;
+
+class DatabaseSeeder extends Seeder
+{
+	/**
+	 * Run the database seeds.
+	 *
+	 * @return void
+	 */
+	public function run()
+	{
+		$this->call(UserSeeder::class);
+		$this->call(AuthorSeeder::class);
+		$this->call(BookSeeder::class);
+		$this->call(PostSeeder::class);
+	}
+}
+</c>				
 				
 			</div>
 		</div>
