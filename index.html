@@ -16058,7 +16058,7 @@ function add_my_currency_symbol( $currency_symbol, $currency ) {
 			<div class="entry-keywords">laravel, lrv, testing, documentation, docs, help, link</div>
 			<div class="entry-text">
 
-				<p><a target="_blank" href="https://laravel.com/docs/5.1/testing">https://laravel.com/docs/5.1/testing</a></p>
+				<p><a target="_blank" href="https://laravel.com/docs/5.8/http-tests">https://laravel.com/docs/5.8/http-tests</a></p>
 
 			</div>
 		</div>
@@ -16329,28 +16329,128 @@ class DatabaseSeeder extends Seeder
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel PHPunit tesovi neocekivano neuspevaju</div>
+			<div class="entry-keywords">laravel, lrv, phpunit, test, fail, database, engine, db, innodb, InnoDB, config, null, error, problem</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
+<p><span class="grayback">Problem</span> Phpunit testovi failuju iako ne bi trebalo (rade na nekom drugom emstu ili su ranije radili).</p>
+
+<p><span class="grayback">Proveriti</span> Proveri database engine u <c>config/database.php</c> treba da bude podeseno na InnoDB.</p>
 			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+<c>
+'mysql' => [
+	'driver' => 'mysql',
+	'host' => env('DB_HOST', '127.0.0.1'),
+	'port' => env('DB_PORT', '3306'),
+	'database' => env('DB_DATABASE', 'forge'),
+	'username' => env('DB_USERNAME', 'forge'),
+	'password' => env('DB_PASSWORD', ''),
+	'unix_socket' => env('DB_SOCKET', ''),
+	'charset' => 'utf8mb4',
+	'collation' => 'utf8mb4_unicode_ci',
+	'prefix' => '',
+	'prefix_indexes' => true,
+	'strict' => true,
+	<u>'engine' => "InnoDB",</u>
+],
+
+</c>			
+	
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Map generator code</div>
+			<div class="entry-keywords">map, generator, code, random, snippet, js, jq, php, </div>
+			<div class="entry-text">
+			
 <code>
+&lt;style>
+.map-square {
+	border: 1px solid black;
+	box-sizing: border-box;
+}
+&lt;/style>
+&lt;?php
+$width = 60;
+$height = 60;
+
+echo '&lt;div style="font-family: monospace">';
+
+for ($h = 1; $h &lt;= $height; $h++) {
+	for ($w = 1; $w &lt;= $width; $w++) {
+		$c = '&lt;span style="background: blue" class="map-square" data-w="'.$w.'" data-h="'.$h.'">..&lt;/span>';
+		echo $c;
+	}
+	echo '&lt;br />';
+}
+
+echo '&lt;/div>';
+?>
+&lt;script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">&lt;/script>
+&lt;script>
+var height = &lt;?php echo $height ?>;
+var width = &lt;?php echo $width ?>;
+
+function r(x) {
+	return Math.ceil(Math.random() * x);
+}
+
+function el(w, h) {
+	return $('span[data-w="'+w+'"][data-h="'+h+'"]');
+}
+
+function getw(el) {
+	return parseInt(el.attr('data-w'));
+}
+
+function geth(el) {
+	return parseInt(el.attr('data-h'));
+}
+
+function re() {
+	var w = (Math.round(Math.random() * width));
+	var h = (Math.round(Math.random() * height));
+	var e = el(w, h);
+	// e.css('background-color', 'red');
+	return e;
+}
+// re();
+
+function d(radius, color, elw, elh) {
+	// var e = re();
+	var e = el(elw, elh);
+	var ew = getw(e);
+	var eh = geth(e);
+	var radius = radius;
+	
+	for (var j = 0; j &lt; (radius * radius); j++) {
+		var custH = eh + r(radius/2) + r(radius/2) - radius;
+		var custW = ew + r(radius/2) + r(radius/2) - radius;;
+		var newEl = el(custW, custH);
+		newEl.css('background', color);
+	}
+	
+}
+
+d(50, 'green', 20, 45);
+d(50, 'green', 45, 45);
+d(20, 'green', 55, 55);
+
+// d(15, 'rgb(100, 100, 100)', 26, 26);
+// d(10, 'rgb(150, 150, 150)', 24, 24);
+// d(5, 'rgb(200, 200, 200)', 22, 22);
+
+// d(10, 'green', 10, 10);
+// d(10, 'green', 14, 10);
+
+&lt;/script>
+
 </code>
 				
 			</div>
@@ -16359,58 +16459,104 @@ class DatabaseSeeder extends Seeder
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">WordPress ajax</div>
+			<div class="entry-keywords">wordpress, wp, js, ajax, jq, functions.php, call</div>
 			<div class="entry-text">
-
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
 				
 <code>
-</code>
-				
-			</div>
-		</div>
+function jsforwp_frontend_scripts() {
 
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
+  wp_enqueue_script(
+    'jsforwp-frontend-js',
+    get_bloginfo('template_url') . '/assets/js/femain.js',
+    ['jquery'],
+    time(),
+    true
+  );
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
+  wp_localize_script(
+    'jsforwp-frontend-js',
+    'jsforwp_globals',
+    [
+      'ajax_url'    => admin_url( 'admin-ajax.php' ),
+      'total_likes' => get_option( 'jsforwp_likes' ),
+      'nonce'       => wp_create_nonce( 'nonce_name' )
+    ]
+  );
+}
+add_action( 'wp_enqueue_scripts', 'jsforwp_frontend_scripts' );
+
+function jsforwp_add_like() {
+	check_ajax_referer('nonce_name');
+	
+	$data = [
+		[
+			'id' => 1,
+			'name' => 'Lorem ipsum',
+			'url' => 'www.google.com'
+		],
+		[
+			'id' => 2,
+			'name' => 'Lorem ipsum 2',
+			'url' => 'www.google.com'
+		],
+	];
+	
+	
+	// Do sth with wp
+	$response['data'] = $data;
+	$response['success'] = true;
+	
+	$response = json_encode($response);
+	echo $response;
+	die();
+}
+add_action('wp_ajax_jsforwp_add_like', jsforwp_add_like); // For logged in users
+add_action('wp_ajax_nopriv_jsforwp_add_like', jsforwp_add_like); // For non-logged in users
+
+//=========================================================================================
+
+jQuery(function($) {
+
+  $('.param').on('input', function(){
+      console.warn('Pre ajax');
+    // Change url to jsforwp_globals.ajax_url
+    // Change data.action to 'jsforwp_add_like'
+    // Change data._ajax_nonce to jsforwp_globals.nonce
+    
+      $.ajax({
+      type : 'post',
+      dataType : 'json',
+      url : jsforwp_globals.ajax_url,
+      data : {
+        action: 'jsforwp_add_like',
+        _ajax_nonce: jsforwp_globals.nonce
+      },
+      success: function( response ) {
+				var html = '&lt;table>';
+          
+				for (var i = 0; i &lt; response.data.length; i++) {
+					html += '&lt;tr>';
+					html += '&lt;td>' + response.data[i].id + '&lt;/td>';
+					html += '&lt;td>' + response.data[i].name + '&lt;/td>';
+					html += '&lt;td>' + response.data[i].url + '&lt;/td>';
+					html += '&lt;/tr>';
+				}
+          
+				html += '&lt;/table>';
+          
+				$('.res').html(html);
+          
+        console.warn('AJAX success');
+      },
+      error: function() {
+          console.warn('AJAX fail');
+      }
+    });
+  } );
+});
+
+  
 </code>
 				
 			</div>
