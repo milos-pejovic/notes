@@ -13601,7 +13601,7 @@ php srdb.cli.php -h localhost -n zzz -u root -p <b><u>''</u></b> -s a -r a -z
 		
 		<div class="entry">
 			<div class="entry-title">Search/Replace skripta, problem</div>
-			<div class="entry-keywords">searchm replcae, script, error, problem, ajax, unserialize, unserialise, class, incomplete, php, version, db, database, s/r, S/R</div>
+			<div class="entry-keywords">searchm replace, script, error, problem, ajax, unserialize, unserialise, class, incomplete, php, version, db, database, s/r, S/R</div>
 			<div class="entry-text">
 
 				<p><span class="grayback">Problem</span> prilikom pokretanja S/R skripte (u dry run-u) prikaze se alert sa "Ajax problem" greskom.</p>
@@ -16556,7 +16556,6 @@ jQuery(function($) {
   } );
 });
 
-  
 </code>
 				
 			</div>
@@ -16565,29 +16564,174 @@ jQuery(function($) {
 		<!-- Entry separator -->
 		
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Laravel Testing example (password update)</div>
+			<div class="entry-keywords">laravel, lrv, test, phpunit, password, example, update, assert, setup, setUp</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
 				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
+				<p>Metoda u kontroleru:</p>
 <code>
+public function updatePassword(Request $request)
+{
+	$user = auth()->user();
+
+	$validator = \Validator::make($request->all(), [
+		'current_password' => [
+			'required',
+			new CheckCurrentPassword($request->current_password, $user->password)
+		],
+		'new_password' => 'required|min:6|confirmed',
+	]);
+
+	if ($validator->fails()) {
+		return response()->json(['data' => $validator->messages()], 422);
+	}
+
+	$user->password = Hash::make($request['new_password']);
+	$user->save();
+	return response()->json(['data' => ['message' => 'Password updated']]);
+}
 </code>
+				
+				<p>Custom validation rule kod:</p>
+				
+<c>
+namespace App\Rules;
+
+use Illuminate\Contracts\Validation\Rule;
+
+class CheckCurrentPassword implements Rule
+{
+	public $currentPasswordEntry;
+	public $userPassword;
+
+	/**
+	 * Create a new rule instance.
+	 *
+	 * @return void
+	 */
+	public function __construct($currentPasswordEntry, $userPassword)
+	{
+		$this->currentPasswordEntry = $currentPasswordEntry;
+		$this->userPassword = $userPassword;
+	}
+
+	/**
+	 * Determine if the validation rule passes.
+	 *
+	 * @param  string  $attribute
+	 * @param  mixed  $value
+	 * @return bool
+	 */
+	public function passes($attribute, $value)
+	{
+		if (\Hash::check($this->currentPasswordEntry, $this->userPassword)) {
+			return true;
+		}
+		return false;
+	}
+
+	/**
+	 * Get the validation error message.
+	 *
+	 * @return string
+	 */
+	public function message()
+	{
+		return 'Incorrect current password.';
+	}
+}
+</c>				
+				
+			<p>Testovi</p>	
+				
+<c>
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use App\Models\User;
+use App\Models\Location;
+
+class AccountTest extends TestCase
+{
+	use DatabaseTransactions;
+
+	public $user;
+
+	public function setUp(): void
+	{
+		parent::setUp();
+		$this->user = create(User::class, ['password' => \Hash::make(self::current_password)]);
+	}
+
+	const current_password = 'test_current_password';
+	const new_password = 'test_new_password';
+
+	public function testUserCanUpdatePasswordWithCorrectCredentials()
+	{
+		$user = $this->user;
+		signIn($user);
+
+		$this->json('POST', '/api/user/update_password',[
+			'current_password' => self::current_password,
+			'new_password' => self::new_password,
+			'new_password_confirmation' => self::new_password,
+		])
+		->assertStatus(200);
+
+		$this->assertTrue(\Hash::check(self::new_password, $user->password));
+	}
+
+	public function testUserCannotUpdatePasswordWithIncorrectCurrentPassword()
+	{
+		$user = $this->user;
+		signIn($user);
+
+		$this->json('POST', '/api/user/update_password', [
+			'current_password' => 'incorrect_current_password',
+			'new_password' => self::new_password,
+			'new_password_confirm' => self::new_password,
+		])
+		->assertStatus(422);
+
+		$this->assertTrue(\Hash::check(self::current_password, $user->password));
+	}
+
+	public function testUserCannotUpdatePasswordWithShortNewPassword()
+	{
+		$user = $this->user;
+		signIn($user);
+
+		$this->json('POST', '/api/user/update_password', [
+			'current_password' => self::new_password,
+			'new_password' => 'a',
+			'new_password_confirm' => 'a',
+		])
+		->assertStatus(422);
+
+		$this->assertTrue(\Hash::check(self::current_password, $user->password));
+	}
+
+	public function testUserCannotUpdatePasswordWithouConfirmedNewPassword()
+	{
+		$user = $this->user;
+		signIn($user);
+
+		$this->json('POST', '/api/user/update_password', [
+			'current_password' => self::current_password,
+			'new_password' => self::new_password,
+			'new_password_confirm' => self::new_password . '123',
+		])
+		->assertStatus(422);
+
+		$this->assertTrue(\Hash::check(self::current_password, $user->password));
+	}
+}
+
+</c>				
 				
 			</div>
 		</div>
