@@ -3418,6 +3418,138 @@ t3lib_extMgm::addLLrefForTCAdescr('tx_mailform_pi1', 'EXT:pil_mailform/locallang
 		<!-- Entry separator -->
 		
 		<div class="entry">
+			<div class="entry-title">Combat test</div>
+			<div class="entry-keywords">combat, game, test, js, javascript, snippet</div>
+			<div class="entry-text">
+
+<code>
+function r(x) {
+	return Math.ceil(Math.random() * x);
+}
+
+var human = {
+	hp : 50,
+	att : 7,
+	def : 9,
+	dmgMin : 5,
+	dmgMax : 10,
+	ac : 5,
+	mr : 5,
+	spd : 5
+}
+
+var orc = {
+	hp : 80,
+	att : 10,
+	def : 5,
+	dmgMin : 7,
+	dmgMax : 14,
+	ac : 2,
+	mr : 2,
+	spd : 3
+}
+
+//======================================================================
+
+function Acter(stats, group, index) {
+	this.hpMax = stats.hp;
+	this.hpCurr = stats.hp;
+	this.att = stats.att;
+	this.def = stats.def;
+	this.dmgMin = stats.dmgMin;
+	this.dmgMax = stats.dmgMax;
+	this.ac = stats.ac;
+	this.mr = stats.mr;
+	this.spd = stats.spd;
+	
+	this.die = function() {
+		group.splice(index, 1);
+	};
+	
+	this.takeDamage = function(dmg) { 
+		if (this.hpCurr - dmg &lt;= 0) {
+			this.hpCurr = 0;
+			this.die();
+		} else if (this.hpCurr - dmg > this.hpMax) {
+			this.hpCurr = this.hpMax;
+		} else {
+			this.hpCurr -= dmg;
+		}
+	};
+	
+	this.calculateDamage = function() {
+		return r(this.dmgMax - this.dmgMin + 1) + this.dmgMin - 1;
+	};
+	
+	this.chooseTarget = function(enemyGroup) {
+		return enemyGroup[r(enemyGroup.length -1)];
+	};
+	
+	this.attack = function(target) {
+		var hit = false;
+		if (this.att + r(10) > target.def + r(10)){
+			hit = true;
+		}
+	
+		if (hit) {
+			var dmg = this.calculateDamage();
+		
+			if (dmg - target.ac &lt;= 0) {
+				dmg = 0;
+			}
+			target.takeDamage(dmg);
+		}
+	};
+	
+	
+	this.hi = function() {
+		console.warn('Hello');
+	};
+}
+
+//======================================================================
+
+var humans = [];
+var orcs = [];
+
+for (var i = 0; i &lt; 10; i++) {
+	humans.push(new Acter(human, humans, i));
+}
+
+for (var j = 0; j &lt; 10; j++) {
+	orcs.push(new Acter(orc, orcs, j));
+}
+
+function x() {
+	console.log(111);
+}
+
+function combatRound() {
+	var allActers = humans.concat(orcs);
+	var allActersRearranged = [];
+	
+	
+	for (var k = 0; k &lt; allActers.length; k++) {
+		var d = new Date();
+		var initiative = (allActers[k].spd + r(10)) * 1000000000000 + d.getTime() + k;
+		allActersRearranged[initiative] = allActers[k];
+	}
+	
+	allActersRearranged.sort();
+	
+	console.warn(allActersRearranged);
+	
+}
+
+combatRound();
+</code>
+				
+			</div>
+		</div>
+		
+		<!-- Entry separator -->
+		
+		<div class="entry">
 			<div class="entry-title">Dodavanje nove ext na SVN</div>
 			<div class="entry-keywords">SVN, svn, extension, add, new, zend, ZEND</div>
 			<div class="entry-text">
@@ -16796,36 +16928,6 @@ class AccountTest extends TestCase
 			
 				<p><a target="_blank" href="https://wordpress.org/plugins/redirection/">https://wordpress.org/plugins/redirection/</a></p>
 
-			</div>
-		</div>
-
-		<!-- Entry separator -->
-		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
-			<div class="entry-text">
-
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
-<code>
-</code>
-				
 			</div>
 		</div>
 
