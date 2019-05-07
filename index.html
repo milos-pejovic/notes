@@ -16948,29 +16948,16 @@ $timestampedTime = date("Y-m-d H:i:s", strtotime($time));
 
 		<!-- Entry separator -->
 		
-		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+		<div class="entry-title">SQL string replace</div>
+			<div class="entry-keywords">sql, string, replace, db, database, table, entry, update, search</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-			
-				<p><span class="grayback"></span></p>
-				
-				<p><a target="_blank" href=""></a></p>
-				
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-				
 <code>
+UPDATE table_name
+SET 
+	column_name = REPLACE(column_name,
+		'searchstring',
+		'setreplacestring');
 </code>
 				
 			</div>
