@@ -17040,9 +17040,39 @@ SET
 				
 <code>
 ICL_LANGUAGE_CODE
+<code>
+		</div>
+	</div>
+	
+	<!-- Entry separator -->
+
+<div class="entry">
+		<div class="entry-title">Currency field</div>
+			<div class="entry-keywords">js, jq, javascipt, currency, dollar, money, value, input, field, separate, validate, $, price, pricing, money, euro</div>
+			<div class="entry-text">
+				
+
+$( "body" ).on( "input", ".approximate-cost", function() {
+	var value = $(this).val();
+	value = value.replace(/[^0-9]/gi, '');
+
+	while (value[0] == '0') {
+		value = value.substring(1);
+	}
+
+	if (value.length > 0){
+		value = value.split('').reverse().join('');
+		value = value.match(/.{1,3}/g);
+		value = value.join(',');
+		value = value.split('').reverse().join('');
+		value = '$' + value;
+	}
+
+	$(this).val(value);
+});
 
 </code>
-				
+			
 			</div>
 		</div>
 
