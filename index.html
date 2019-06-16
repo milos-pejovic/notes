@@ -17099,6 +17099,135 @@ $( "body" ).on( "input", ".approximate-cost", function() {
 		<!-- Entry separator -->
 		
 		<div class="entry">
+			<div class="entry-title">Include css</div>
+			<div class="entry-keywords">css, include, manually, head, link, types, style, rel, stylesheet, tag, html</div>
+			<div class="entry-text">
+
+				
+<code>
+&lt;link rel="stylesheet" type="text/css" href="mystyle.css">
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator --> 
+		
+		<div class="entry">
+			<div class="entry-title">JQuery ajax ne radi i ako je JQ ukljucen</div>
+			<div class="entry-keywords">$.ajax is not a function, error, js, jq, problem, slim, minified</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Proveri da li se koristi slim verzija JQ, iz nje su izbacene neke stvari, ukljucujuci AJAX</p>
+		
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">PDO</div>
+			<div class="entry-keywords">PDO, pdo, link, tutorial, documentation, docs, help, php, database, object</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://phpdelusions.net/pdo">https://phpdelusions.net/pdo</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">File upload with AJAX</div>
+			<div class="entry-keywords">js, jq, ajax, image, upload, file, request, send, php, form, field, input, link, help, tutorial, documentation, multipart-form-data</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="https://www.cloudways.com/blog/the-basics-of-file-upload-in-php/">https://www.cloudways.com/blog/the-basics-of-file-upload-in-php/</a></p>
+
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">"File download" with js</div>
+			<div class="entry-keywords">js, jq, file, download, link, click, help, documentation, button</div>
+			<div class="entry-text">
+
+<code>
+function download(filename, text) {
+  var element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+// Start file download.
+download("hello.txt","This is the content of my file :)");
+</code>			
+			
+				<p><a target="_blank" href="https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server">https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server</a></p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">PHP write inside a file</div>
+			<div class="entry-keywords">php, write, file, inside, edit, contents, fopen, fclose, fwrite</div>
+			<div class="entry-text">
+
+				<p><span class="grayback">CAREFUL</span> By passing "w" in "fopen" id it a;ready exists and has content, you will delete it.</p>
+				
+<code>
+$file = fopen("users.csv", "w");
+fwrite($file, $fileContents);
+fclose($file);
+</code>
+				
+				<p><a target="_blank" href="https://php.net/manual/en/function.fopen.php">https://php.net/manual/en/function.fopen.php</a></p>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title">Send files over AJAX</div>
+			<div class="entry-keywords">js, jq, files, send, form, request, post, get</div>
+			<div class="entry-text">
+
+				
+<code>
+$.ajax({
+	type: "POST",
+	data: new FormData(this),
+	contentType: false,
+	processData:false,    
+	url : '/form-handler.php',
+	success: function( response ) {
+		//...
+	},
+	error: function() {
+		//...
+	}
+});
+
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
+		
+		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
@@ -17126,7 +17255,37 @@ $( "body" ).on( "input", ".approximate-cost", function() {
 			</div>
 		</div>
 
-		<!-- Entry separator --> 
+		<!-- Entry separator -->
+		
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+			
+				<p><span class="grayback"></span></p>
+				
+				<p><a target="_blank" href=""></a></p>
+				
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				
+<code>
+</code>
+				
+			</div>
+		</div>
+
+		<!-- Entry separator -->
 		
 		<div class="entry">
 			<div class="entry-title"></div>
