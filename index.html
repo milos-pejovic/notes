@@ -17668,34 +17668,90 @@ error_log('My log message', 1,"mymail@gmail.com");
 		<!-- Entry separator -->
 
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Delete full folder</div>
+			<div class="entry-keywords">delete, full, folder, file, unlink, remove, full, empty, not, non</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-
-				<p><span class="grayback"></span></p>
-
-				<p><a target="_blank" href=""></a></p>
-
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-
 <code>
+function delete_directory($dirname) {
+   if (is_dir($dirname))
+     $dir_handle = opendir($dirname);
+   if (!$dir_handle)
+      return false;
+   while($file = readdir($dir_handle)) {
+     if ($file != "." && $file != "..") {
+        if (!is_dir($dirname."/".$file))
+           unlink($dirname."/".$file);
+        else
+         		delete_directory($dirname.'/'.$file);
+     }
+   }
+   closedir($dir_handle);
+   rmdir($dirname);
+   return true;
+}
 </code>
 
 			</div> <!-- entry-text END -->
 		</div> <!-- entry END -->
 
 		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">GitInore cration site</div>
+			<div class="entry-keywords">.gitignore, file, site, help, creation</div>
+			<div class="entry-text">
+
+				<p><a target="_blank" href="http://www.gitignore.io/">http://www.gitignore.io/</a></p>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">php, funkcija za kopiranje celog foldera</div>
+			<div class="entry-keywords">php, function, funkcija, copy, whole, entire, folder, content, source, destination</div>
+			<div class="entry-text">
+
+<code>
+function custom_copy($src, $dst) {
+
+  // open the source directory
+  $dir = opendir($src);
+
+  // Make the destination directory if not exist
+  @mkdir($dst);
+
+  // Loop through the files in source directory
+  while( $file = readdir($dir) ) {
+
+    if (( $file != '.' ) && ( $file != '..' )) {  
+      if ( is_dir($src . '/' . $file) )
+      {
+
+        // Recursively calling custom copy function
+        // for sub directory
+        custom_copy($src . '/' . $file, $dst . '/' . $file);
+
+      }
+      else {
+        copy($src . '/' . $file, $dst . '/' . $file);
+      }
+    }
+  }
+
+  closedir($dir);
+}
+
+$src = getcwd() . '/assets';
+$dst = getcwd() . '/assets2';
+
+custom_copy($src, $dst);
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
 
 		<div class="entry">
 			<div class="entry-title"></div>
@@ -17725,7 +17781,33 @@ error_log('My log message', 1,"mymail@gmail.com");
 			</div> <!-- entry-text END -->
 		</div> <!-- entry END -->
 
-		<!-- Entry separator -->
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><span class="grayback"></span></p>
+
+				<p><a target="_blank" href=""></a></p>
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
 
 		<div class="entry">
 			<div class="entry-title"></div>
