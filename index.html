@@ -17928,12 +17928,12 @@ function is_valid_json(str) {
 						<td>Quickly (whole screen):</td>
 						<td>SHIFT + COMMAND + 3</td>
 					</tr>
-					
+
 					<tr>
 						<td>Choose screenshot size:</td>
 						<td>SHIFT + COMMAND + 4</td>
 					</tr>
-					
+
 					<tr>
 						<td>With options (also for recording):</td>
 						<td>SHIFT + COMMAND + 5</td>
@@ -17948,28 +17948,16 @@ function is_valid_json(str) {
 		<!-- Entry separator -->
 
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">JQuery cookie expire in minutes</div>
+			<div class="entry-keywords">jquery, jq, cookie, expire, minutes, set, object, literal, date, setTiem, settime, gettime, getTime, 15, $.cookie, Cookies.</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-
-				<p><span class="grayback"></span></p>
-
-				<p><a target="_blank" href=""></a></p>
-
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
+				<p><span class="grayback"></span>If <c>expire</c> is given an integer it might treat it as a numebr of days fo cookie validity. For minutes, use this:</p>
 
 <code>
+var expDate = new Date();
+expDate.setTime(expDate.getTime() + (15 * 60 * 1000)); // add 15 minutes
+$.cookie(COOKIE_NAME, 'test', { path: '/', expires: expDate });
 </code>
 
 			</div> <!-- entry-text END -->
@@ -17978,28 +17966,27 @@ function is_valid_json(str) {
 		<!-- Entry separator -->
 
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Get GET paramateres with JS</div>
+			<div class="entry-keywords">js, javascript, get, parameters, from, url, ?, =, undefined, params</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
-
-				<p><span class="grayback"></span></p>
-
-				<p><a target="_blank" href=""></a></p>
-
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-
 <code>
+function get_get_param(param) {
+	var get_params_raw = window.location.search.substr(1).split('&');
+	var get_params = {};
+
+	for(var i = 0; i < get_params_raw.length; i++) {
+		var key = get_params_raw[i].split('=')[0];
+		var value = get_params_raw[i].split('=')[1]
+		get_params[key] = value;
+	}
+
+	if (get_params[param] != undefined) {
+		return get_params[param];
+	} else {
+		return '';
+	}
+}
 </code>
 
 			</div> <!-- entry-text END -->
