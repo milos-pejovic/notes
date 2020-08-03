@@ -15452,7 +15452,7 @@ class UsersTableSeeder extends Seeder
 			<div class="entry-keywords">laravel, lrv, react, jwt, JSON, json, web, token, tutorial, documentation, help, link, reference, authorization, authorisation</div>
 			<div class="entry-text">
 
-				<p><a target="_blank" href="https://medium.com/@Gbxnga/token-based-authentication-with-react-and-laravel-restful-api-83f16581e85">https://medium.com/@Gbxnga/token-based-authentication-with-react-and-laravel-restful-api-83f16581e85</a></p>
+				<p><a target="_blank" href="https://awsofthings.com/token-based-authentication-with-react-and-laravel-restful-api-83f16581e85/">https://awsofthings.com/token-based-authentication-with-react-and-laravel-restful-api-83f16581e85/</a></p>
 
 			</div>
 		</div>
@@ -17995,6 +17995,231 @@ function get_get_param(param) {
 		<!-- Entry separator -->
 
 		<div class="entry">
+			<div class="entry-title">Laravel returns JSON response</div>
+			<div class="entry-keywords">laravel, lrv, json, response, return, api</div>
+			<div class="entry-text">
+
+<code>
+return response()
+->json(['name' => 'Abigail', 'state' => 'CA'])
+->withCallback($request->input('callback'));
+
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">Laravel validation in:</div>
+			<div class="entry-keywords">laravel, lrv, validation, in, validator, rule</div>
+			<div class="entry-text">
+
+
+<code>
+use Illuminate\Validation\Rule;
+
+$validator = Validator::make($request->all(), [
+  'field' => [Rule::in(['0', '1'])]
+]);
+
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">Coding music</div>
+			<div class="entry-keywords">coding, music, good, concentration, buckethead</div>
+			<div class="entry-text">
+
+				<ul>
+					<li>Celery (Buckethead Pikes #71)</li>
+					<li>To my Mother</li>
+					<li>Project little man</li>
+					<li>Northern lights</li>
+					<li>Crumple (Buckethead Pikes #213)</li>
+					<li>(Full Album) Buckethead - Glacier (Buckethead Pikes #263)</li>
+				</ul>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">Laravel Seeder error, class does not exist</div>
+			<div class="entry-keywords">lrv, laravel, seeder, error, class, does, not, exist, composer dump-autoload</div>
+			<div class="entry-text">
+
+				<p>Run in termnal:</p>
+				<c>composer dump-autoload</c>
+				<hr />
+
+				<p><span class="grayback">Problem</span> When running the seeder, there is an error that a certain seeder class does not exist, but it exists.</p>
+<c>
+// If the type is not instantiable, the developer is attempting to resolve
+// an abstract type such as an Interface or Abstract Class and there is
+
+</c>
+
+<p><a target="_blank" href="https://stackoverflow.com/questions/26143315/laravel-5-artisan-seed-reflectionexception-class-songstableseeder-does-not-e">https://stackoverflow.com/questions/26143315/laravel-5-artisan-seed-reflectionexception-class-songstableseeder-does-not-e</a></p>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">Laravel brisanje cache-a</div>
+			<div class="entry-keywords">lrv, laravel, cache, clean, config, route</div>
+			<div class="entry-text">
+
+				<p><span class="grayback"></span>Clears all</p>
+<code>
+php artisan optimize:clear
+
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title">Linux file permissions</div>
+			<div class="entry-keywords">linux, lnx, file, dir, permissions, privileges, chmod, read, write, execute, ls -l. terminal, command, line</div>
+			<div class="entry-text">
+
+				<p><a href="https://www.youtube.com/watch?v=BmVmJi5dR9c">https://www.youtube.com/watch?v=BmVmJi5dR9c</a></p>
+
+				<hr />
+
+				<p><span class="grayback">See files with permissions</span></p>
+<c>
+ls -l
+ls -a -l  // Together with hidden files
+</c>
+
+				<hr />
+
+				<p><span class="grayback">Output example</span></p>
+
+
+<c>-rw-r--r--</c>
+
+				<p>Divided into 1+3+3+3 characters</p>
+
+<c>
+-
+rw-
+r--
+r--
+
+</c>
+
+				<ul>
+					<li><c>r</c> read</li>
+					<li><c>w</c> write</li>
+					<li><c>x</c> execute</li>
+				</ul>
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td><c>-</c> or <c>d</c></td>
+						<td>Character <c>-</c> for file, <c>d</c> for directory.</td>
+					</tr>
+					<tr>
+						<td><c>rw-</c></td>
+						<td><b>Main user</b> permissions</td>
+					</tr>
+					<tr>
+						<td><c>r--</c></td>
+						<td><b>Groups</b> permissions</td>
+					</tr>
+					<tr>
+						<td><c>r--</c></td>
+						<td><b>Other</b> permissions</td>
+					</tr>
+				</table>
+
+				<hr />
+
+				<p><span class="grayback">Change permissions</span></p>
+
+<c>
+chmod
+</c>
+
+				<ul>
+					<li><b>u</b> - main user, most permissions</li>
+					<li><b>g</b> - group</li>
+					<li><b>o</b> - other users, least permissionsup</li>
+				</ul>
+
+<c>
+chomd o+w test.txt // Give Other users write permission
+chomd g-x test.txt // Remove execute permission from Gropus
+</c>
+
+<hr />
+
+				<p><span class="grayback">Using numbers to change permissions</span></p>
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td>7</td>
+						<td>Read Write Execute</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>Read Write</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>Read Execute</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>Read</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>Write</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>Execute</td>
+					</tr>
+					<tr>
+						<td>0</td>
+						<td>No permissions</td>
+					</tr>
+				</table>
+
+<c>
+
+chmod 754 t.txt
+</c>
+				<ul>
+					<li>Main user - read, write execute</li>
+					<li>Groups - read, execute</li>
+					<li>Other - read</li>
+				</ul>
+
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
 			<div class="entry-title"></div>
 			<div class="entry-keywords"></div>
 			<div class="entry-text">
@@ -18023,6 +18248,148 @@ function get_get_param(param) {
 		</div> <!-- entry END -->
 
 		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><span class="grayback"></span></p>
+
+				<p><a target="_blank" href=""></a></p>
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<!-- Entry separator -->
+
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><span class="grayback"></span></p>
+
+				<p><a target="_blank" href=""></a></p>
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><span class="grayback"></span></p>
+
+				<p><a target="_blank" href=""></a></p>
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><span class="grayback"></span></p>
+
+				<p><a target="_blank" href=""></a></p>
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
+
+		<div class="entry">
+			<div class="entry-title"></div>
+			<div class="entry-keywords"></div>
+			<div class="entry-text">
+
+				<table cellpadding="5px" border="1px solid black">
+					<tr>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
+
+				<p><span class="grayback"></span></p>
+
+				<p><a target="_blank" href=""></a></p>
+
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+
+<code>
+</code>
+
+			</div> <!-- entry-text END -->
+		</div> <!-- entry END -->
 
 		<div class="entry">
 			<div class="entry-title"></div>
