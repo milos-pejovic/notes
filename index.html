@@ -18220,29 +18220,21 @@ chmod 754 t.txt
 		<!-- Entry separator -->
 
 		<div class="entry">
-			<div class="entry-title"></div>
-			<div class="entry-keywords"></div>
+			<div class="entry-title">Refresh does not work on nginx server</div>
+			<div class="entry-keywords">server, nginx, ubuntu, vhost, file, refresh, restart, try, html, api, 404, on, location</div>
 			<div class="entry-text">
 
-				<table cellpadding="5px" border="1px solid black">
-					<tr>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
+				<p>When you have configured a vhost for your site it might happen that when you access your application using your host name for eg http://&lt;host-name&gt;/ it all works good. Also you would be able to browse through links with in your app. The problem comes when you are in a path  for eg http://&lt;host-name&gt;/some/path and you hit refresh you get a 404 error page. After a lot of digging finally found this on github issues. This extra line in the vhost could save your day.</p>
 
-				<p><span class="grayback"></span></p>
+<c>
+location /{
+	try_files $uri $uri/ /index.html?/$request_uri;
+}
+</c>
 
-				<p><a target="_blank" href=""></a></p>
+<p>After adding do a nginx service restart and everything works great !</p>
 
-				<ul>
-					<li></li>
-					<li></li>
-					<li></li>
-				</ul>
-
-<code>
-</code>
+				<p><a target="_blank" href="https://kjayatech.wordpress.com/2016/07/02/nginx-404-on-refresh/">https://kjayatech.wordpress.com/2016/07/02/nginx-404-on-refresh/</a></p>
 
 			</div> <!-- entry-text END -->
 		</div> <!-- entry END -->
