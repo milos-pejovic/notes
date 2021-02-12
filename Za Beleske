@@ -1,0 +1,109 @@
+https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md
+
+
+==============================
+
+
+Group by multiple
+
+$data = User::join('pending_user_data_changes', 'users.id', '=', 'pending_user_data_changes.user_id')
+                ->select(
+                    'users.id',
+                    'users.name',
+                    'pending_user_data_changes.created_at',
+                    \DB::raw('count(pending_user_data_changes.field_name) as number_of_changes')
+                )
+                ->groupBy(['users.id', 'users.name', 'pending_user_data_changes.created_at'])
+                ->where('users.account_id', auth()->user()->account_id)
+                ->get()
+                ->toArray();
+
+
+
+
+// ======================================================================
+
+Timeformat iso 8601
+
+php string format Y-m-d\TH:i:sO
+
+
+// ======================================================================
+laravel validation
+required_with
+required_with_all
+required_without
+
+// ======================================================================
+
+tail -f storage/logs/laravel.logtion-in-laravel-eloquent
+
+// ======================================================================
+
+Copy a full dir recursively (with all the files inside)
+
+rm -r dirName
+
+// ======================================================================
+
+
+Delete all files inside a dir. WIll note delete dirs. There will be confiramtion prompt
+
+rm *
+
+To delete dirs as well, use -r flag (recursively). It will delete dirs that are not empty There will be confiramtion prompt
+
+rm -r *
+
+// ======================================================================
+
+This will copy the content of the dirName to the current folder
+cp dirName
+
+// ======================================================================
+
+Makes dir1 and in it dir2 and in it dir3...
+
+mkdir -p dir1/dir2/dir3
+
+// ======================================================================
+Find files
+
+find startDir -name filename
+
+find . -name readme.txt // Will for search for file named readme.txt in current dir and all of its subdirs
+
+
+More
+https://www.linode.com/docs/tools-reference/tools/find-files-in-linux-using-the-command-line/
+
+// ======================================================================
+Check disk usage of files
+
+du // all dirs in current dir
+
+du * // ALl files and dirs in current dir
+
+du fileOrDirName // one file/ dir
+
+du -h // to show in bytes
+
+// ======================================================================
+Custom valdiation messages when validation is in controller
+
+$validator = Validator::make(
+                $request->all(),
+                $validationRules,
+                [
+                    'payment_instruction_id.required_unless' => 'If payment method is set to wiretransfer, field payment instruction is required.',
+                ]
+            );
+
+// ======================================================================
+Zendesk API AUthentication
+username: peter@peterson.com/token
+token: sadn90n83r920d340-f04p4r3
+
+  base64_encode
+
+https://support.zendesk.com/hc/en-us/articles/115000510267-How-can-I-authenticate-API-requests-

@@ -1,0 +1,47 @@
+***
+Da bi mogli da instaliramp Nginx i da on radi, na sistemu mora da bude vec instalirano:
+* Vim ili nano - Za editovanje teksta
+* Wget - Za download fajlova sa neta koriscenjem HTTP, HTTPS ili FTP
+* Lynx - Text based web browser. Primer koriscenja je da proverimo preko CLI da li web server radi.
+
+Instalacija ovoga na Ubuntu moze da se uradi preko apt-get install ...
+
+***
+Dodavanje repozitorijuma (apt source)
+
+***
+NGINX
+
+* Konfiguracija
+  * Lokacija: /etc/nginx/nginx.conf
+
+* Vhost
+  * Lokacija: /etc/nginx/sites-available
+  * Proveri sta je u sites-enabled
+
+* Default lokacija fajlova koji se serviraju:
+  * Lokacija: /usr/share/nginx
+
+* Logs
+  * Location: /var/log/nginx
+  * access.log - svi requestovi poslati na ovaj server
+  * error.log - sve greske koje je kod nas serveru susreo
+
+* Binary that starts the daemon
+  * Mora se ulogovati kao root ili korisiti sudo
+  * Location: /usr/sbin/nginx
+  * Broj procesa - Stavi onoliko koliko jezgara procesor ima. Ili savi AUTO
+
+* Prikazi sve procese?
+ps auf | grep nginx
+
+
+
+
+
+
+
+================================================
+Ubuntu, check current user info:
+who - info
+w - daje vise info

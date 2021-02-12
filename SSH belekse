@@ -1,0 +1,20 @@
+ssh -i .ssh/id_rsa root@104.248.30.73
+
+
+* Komanda za login na remote server
+ssh username@123.123.123.123
+
+* Ako izostavimo suername, upotrebice trenutni username (vidi levo pre kursora)
+// Upotrebice se "myUsername" i kao username za login
+myUsername@myMachineName:˜$ ssh 123.123.123.123
+
+
+* Flag -i se koristi da se navede naziv fajla (po potrebi sa putanjom) u kome je private key
+
+// U ovom slucaju fajl "id_rsa" je u folderu u kome smo
+ssh i- id_rsa milospejovic@123.123.123.123
+
+* Standardni port za SSH je 22
+Specifikacija porta se radisa falog/om -p
+
+ssh -p 22 username@123.123.123.123

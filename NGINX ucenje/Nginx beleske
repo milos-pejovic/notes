@@ -1,0 +1,22 @@
+NGINX CONF
+* Lokacija fajl
+  /etc/nginx/nginx.conf
+
+* Direktive
+  * user www-data;
+    * Po defaultu mora se biti ulogovan sa root userom. Nginx napravi child procese kao user definisan ovom direktivom. Ovaj user ima manje permisija od root-a pa je ovako bezbednije.
+    * Proveri aktivne procese komandom: ps auf | grep nginx
+
+* Process ID number
+  * pid /run/nginx.pid;
+
+* Maksimalni broj simultanih konekcija koje jedan worker (child) proces moze da otvori
+Ukupan broj konekcija koje ova ngin conf moze da ima = worker_connections * worker_processes
+* events {
+  	worker_connections 768;
+
+
+
+events { //Context directive
+  worker_connections 768; // Simple directive
+}
